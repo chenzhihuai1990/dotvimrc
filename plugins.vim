@@ -32,6 +32,7 @@ Plug 'raimondi/delimitmate'
 "Plug 'MatchTagAlways'
 Plug 'gregsexton/matchtag'
 Plug 'w0ng/vim-hybrid'
+Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 
@@ -47,12 +48,16 @@ Plug 'rhysd/vim-grammarous'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 't9md/vim-choosewin'
 Plug 'shougo/unite.vim'
 Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'hecal3/vim-leader-guide'
 
-Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
+"Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'chriskempson/base16-vim'
 Plug 'mbbill/undotree'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'mhinz/vim-signify'

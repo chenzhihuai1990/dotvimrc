@@ -62,7 +62,7 @@ let g:mapleader = "\<space>"
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -70,6 +70,8 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
+" Show line number
+set number
 
 " Avoid garbled characters in Chinese language windows OS
 let $LANG='en' 
@@ -151,12 +153,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
-set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -198,18 +194,20 @@ function! PatchForDarkColorscheme()
     hi Folded gui=underline guifg=#909aa0
     hi CursorLineNr guifg=#868886 gui=NONE
     hi MatchParen guifg=NONE guibg=NONE gui=bold,underline
-    hi Visual guibg=#404040
+    hi Visual guibg=#606060
     hi link SpecialKey Comment
 endfunction
+set background=dark
 if has('gui_running')
-    let g:hybrid_custom_term_colors = 1
-    let g:hybrid_reduced_contrast = 0
-    colorscheme hybrid
-    call PatchForDarkColorscheme()
+    let g:gruvbox_invert_selection=1
+    colorscheme gruvbox
 else
-    colorscheme default
+    try 
+        colorscheme gruvbox 
+    catch
+        colorscheme default
+    endtry
 endif
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -218,12 +216,19 @@ set nobackup
 set nowb
 set noswapfile
 
-try
-    set undodir=~/.vim_runtime/temp_dirs/undodir
+if exists("+undofile")
+    " undofile - This allows you to use undos after exiting and restarting
+    " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
+    " :help undo-persistence
+    " This is only present in 7.3+
+    let homedir = expand($HOME).'\vimfiles\undo'
+    if isdirectory($HOME . '\vimfiles\undo') == 0
+        :execute ':silent !mkdir '.homedir
+    endif
+    set undodir=./vimfiles/undo//
+    set undodir+=~/vimfiles/undo//
     set undofile
-catch
-    echo "set undodir fail!"
-endtry
+endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Text, tab and indent related
@@ -295,6 +300,21 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+vnoremap < <gv
+vnoremap > >gv
+map Y y$
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap * *zv
+nnoremap # #zv
+nnoremap n nzv
+nnoremap N Nzv
+inoremap <C-BS> <C-w>
+inoremap <C-S> <C-o>:update<Cr>
+nnoremap <C-S> :update<Cr>
+inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking

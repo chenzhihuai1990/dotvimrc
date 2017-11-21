@@ -4,6 +4,7 @@
 """"""""""""""""""""""""""""""
 let g:lmap={}
 
+omap <leader> <Plug>(easymotion-bd-w)
 let g:lmap[' '] = ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Ace-jump']
 let g:lmap['<tab>'] = ['e #', 'last buffer']
 
@@ -20,6 +21,7 @@ let g:llmap = {}
 
 
 "nmap <leader><tab> :e #<cr>
+nmap <leader>w :ChooseWin<cr>
 let g:lmap.b = {
             \'name': 'Build',
             \'r':['call feedkeys("\<Plug>(quickrun)")', 'quickrun'],
@@ -42,12 +44,13 @@ let g:lmap.d = {
 let g:lmap.h = {
             \'name': 'GitGutter',
             \}
-let g:lmap.j = {
+let g:lmap.g = {
             \'name': 'Jump',
             \'w':['call feedkeys("\<Plug>(easymotion-w)")', 'jump to word'],
             \'f':['call feedkeys("\<Plug>(easymotion-f)")', 'find {char}'],
             \'F':['call feedkeys("\<Plug>(easymotion-f)")', 'find {char} backward'],
             \'b':['call feedkeys("\<Plug>(easymotion-b)")', 'jump Backward'],
+            \'B':['CtrlPBuffer', 'buffers'],
             \'l':['call feedkeys("\<Plug>(easymotion-bd-jk)")', 'jump to line'],
             \'k':['call feedkeys("\<Plug>(easymotion-iskeyword-bd-w)")', 'jump to line'],
             \'t':['CtrlPBufTag', 'BufTags'],
@@ -66,6 +69,7 @@ let g:lmap.o = {
             \'name': 'Open',
             \'f':['CtrlP', 'File'],
             \'r':['CtrlPMRUFiles', 'MRU File'],
+            \'b':['CtrlPBuffer', 'Buffers'],
             \'m':['CtrlPMixed', 'Mixed'],
             \'n':['NERDTreeToggle', 'NERDTree'],
             \'u':['UndotreeToggle', 'UndoTree'],
@@ -87,7 +91,7 @@ let g:lmap.t = {
             \'w':['set wrap!', 'wrap']
             \}
 
-let g:lmap.w = {
+let g:lmap.m = {
             \'name': 'Windows',
             \'e':['vnew', 'new'],
             \'v':['vsplit', 'vertically split'],
@@ -104,7 +108,7 @@ function! s:appendSessionsToOpen()
         let fn = fnamemodify(se,":t:r")
         let g:lmap.o[index % 10] = ["OpenSession ".fn, fn]
         let index += 1
-        if index > 9 
+        if index > 9
             break
         endif
     endfor
