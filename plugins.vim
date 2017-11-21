@@ -22,7 +22,7 @@ Plug 'scrooloose/nerdcommenter'
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
-Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer'}
+"Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer'}
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 
@@ -32,6 +32,8 @@ Plug 'raimondi/delimitmate'
 "Plug 'MatchTagAlways'
 Plug 'gregsexton/matchtag'
 Plug 'w0ng/vim-hybrid'
+Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 
@@ -51,8 +53,12 @@ Plug 'shougo/unite.vim'
 Plug 'ap/vim-buftabline'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'hecal3/vim-leader-guide'
-
-Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
+if has('gvim')
+    Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
+else
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+endif
 Plug 'mbbill/undotree'
 Plug 'ctrlpvim/ctrlp.vim'
 "Plug 'mhinz/vim-signify'

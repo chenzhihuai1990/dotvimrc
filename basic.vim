@@ -62,7 +62,7 @@ let g:mapleader = "\<space>"
 
 " :W sudo saves the file 
 " (useful for handling the permission-denied error)
-command W w !sudo tee % > /dev/null
+command! W w !sudo tee % > /dev/null
 
 set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -151,12 +151,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
-set background=dark
 
 " Set extra options when running in GUI mode
 if has("gui_running")
@@ -187,7 +181,7 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
-function! PatchForDarkColorscheme()
+function! PatchForDarkColorscheme() abort
     "hi Normal guifg=#bbbbbb
     hi Cursor guifg=black guibg=darkorange
     hi CursorIM guifg=black guibg=darkorange
@@ -201,15 +195,17 @@ function! PatchForDarkColorscheme()
     hi Visual guibg=#404040
     hi link SpecialKey Comment
 endfunction
-if has('gui_running')
-    let g:hybrid_custom_term_colors = 1
-    let g:hybrid_reduced_contrast = 0
-    colorscheme hybrid
-    call PatchForDarkColorscheme()
+if has('gui_running') || has('nvim')
+    colorscheme gruvbox
+    "augroup on_change_colorschema
+        "autocmd!
+        "autocmd ColorScheme * call PatchForDarkColorscheme()
+    "augroup END
 else
     colorscheme default
 endif
 
+set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
