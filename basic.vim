@@ -1,12 +1,12 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Maintainer: 
+" Maintainer:
 "       Amir Salihefendic
 "       http://amix.dk - amix@amix.dk
 "
-" Version: 
-"       6.0 - 01/04/17 14:24:34 
+" Version:
+"       6.0 - 01/04/17 14:24:34
 "
-" Blog_post: 
+" Blog_post:
 "       http://amix.dk/blog/post/19691#The-ultimate-Vim-configuration-on-Github
 "
 " Awesome_version:
@@ -19,7 +19,7 @@
 " Syntax_highlighted:
 "       http://amix.dk/vim/vimrc.html
 "
-" Raw_version: 
+" Raw_version:
 "       http://amix.dk/vim/vimrc.txt
 "
 " Sections:
@@ -60,7 +60,7 @@ let g:mapleader = "\<space>"
 
 " Fast saving
 
-" :W sudo saves the file 
+" :W sudo saves the file
 " (useful for handling the permission-denied error)
 command! W w !sudo tee % > /dev/null
 
@@ -74,7 +74,7 @@ set so=7
 set number
 
 " Avoid garbled characters in Chinese language windows OS
-let $LANG='en' 
+let $LANG='en'
 set langmenu=en
 source $VIMRUNTIME/delmenu.vim
 source $VIMRUNTIME/menu.vim
@@ -106,23 +106,23 @@ set whichwrap+=<,>,h,l
 " Ignore case when searching
 set ignorecase
 
-" When searching try to be smart about cases 
+" When searching try to be smart about cases
 set smartcase
 
 " Highlight search results
 set hlsearch
 
 " Makes search act like search in modern browsers
-set incsearch 
+set incsearch
 
 " Don't redraw while executing macros (good performance config)
-set lazyredraw 
+set lazyredraw
 
 " For regular expressions turn magic on
 set magic
 
 " Show matching brackets when text indicator is over them
-set showmatch 
+set showmatch
 " How many tenths of a second to blink when matching brackets
 set mat=2
 
@@ -146,7 +146,7 @@ set foldcolumn=1
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
-syntax enable 
+syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
 if $COLORTERM == 'gnome-terminal'
@@ -183,7 +183,7 @@ if has("gui_running")
     set guitablabel=%M\ %t
 endif
 
-function! PatchForDarkColorscheme()
+function! PatchForDarkColorscheme() abort
     "hi Normal guifg=#bbbbbb
     hi Cursor guifg=black guibg=darkorange
     hi CursorIM guifg=black guibg=darkorange
@@ -198,16 +198,21 @@ function! PatchForDarkColorscheme()
     hi link SpecialKey Comment
 endfunction
 set background=dark
-if has('gui_running')
-    let g:gruvbox_invert_selection=1
+if has('gui_running') || has('nvim')
     colorscheme gruvbox
+    "augroup on_change_colorschema
+        "autocmd!
+        "autocmd ColorScheme * call PatchForDarkColorscheme()
+    "augroup END
 else
-    try 
-        colorscheme gruvbox 
+    try
+        colorscheme gruvbox
     catch
         colorscheme default
     endtry
 endif
+
+set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -264,7 +269,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Moving around, tabs, windows and buffers
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Specify the behavior when switching between buffers 
+" Specify the behavior when switching between buffers
 try
   set switchbuf=useopen,usetab,newtab
   set stal=2
@@ -362,7 +367,7 @@ function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
     unmenu Foo
-endfunction 
+endfunction
 
 function! VisualSelection(direction, extra_filter) range
     let l:saved_reg = @"

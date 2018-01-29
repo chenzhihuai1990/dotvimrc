@@ -5,8 +5,9 @@ let g:vimtex_view_general_viewer = 'SumatraPDF'
 let g:vimtex_view_general_options
             \ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
-" => Python section
+" > Python section
 """"""""""""""""""""""""""""""
 let python_highlight_all = 1
 au FileType python syn keyword pythonDecorator True None False self
