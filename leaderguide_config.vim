@@ -55,7 +55,6 @@ let g:lmap.g = {
             \'k':['call feedkeys("\<Plug>(easymotion-iskeyword-bd-w)")', 'jump to line'],
             \'t':['CtrlPBufTag', 'BufTags'],
             \'a':['CtrlPBufTagAll', 'AllTags'],
-            \'j':['Unite jump -direction=botright', 'Jumpslist'],
             \}
 
 let g:lmap.k = {
@@ -133,5 +132,5 @@ function! AppendBuffersToClose()
         endif
     endfor
 endfunction
-autocmd! BufAdd * call AppendBuffersToClose()
-autocmd! BufDelete * call AppendBuffersToClose()
+"autocmd! BufAdd * call AppendBuffersToClose()
+"autocmd! BufDelete * call AppendBuffersToClose()

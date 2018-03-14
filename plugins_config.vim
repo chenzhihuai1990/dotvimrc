@@ -34,7 +34,9 @@ let g:vimtex_view_general_options
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
-let g:ycm_global_ycm_extra_conf = '~\vimfiles\plugged\YouCompleteMe\python\.ycm_extra_conf.py'
+if has('win32') || has('win64')
+    let g:ycm_global_ycm_extra_conf = '~\vimfiles\plugged\YouCompleteMe\python\.ycm_extra_conf.py'
+endif
 let g:ycm_key_detailed_diagnostics = '<leader>dd'
 nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
 let g:ycm_keep_logfiles = 1
@@ -177,67 +179,71 @@ nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Session
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:session_autosave='yes'
-let g:session_autoload='yes'
-let g:session_default_to_last='yes'
+"let g:session_autosave='yes'
+"let g:session_autoload='yes'
+"let g:session_default_to_last='yes'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Buftabline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:buftabline_numbers=2
-let g:buftabline_indicators=1
-let g:buftabline_seperators=1
-nmap <M-1> <Plug>BufTabLine.Go(1)
-nmap <M-2> <Plug>BufTabLine.Go(2)
-nmap <M-3> <Plug>BufTabLine.Go(3)
-nmap <M-4> <Plug>BufTabLine.Go(4)
-nmap <M-5> <Plug>BufTabLine.Go(5)
-nmap <M-6> <Plug>BufTabLine.Go(6)
-nmap <M-7> <Plug>BufTabLine.Go(7)
-nmap <M-8> <Plug>BufTabLine.Go(8)
-nmap <M-9> <Plug>BufTabLine.Go(9)
-nmap <M-0> <Plug>BufTabLine.Go(10)
+"let g:buftabline_numbers=2
+"let g:buftabline_indicators=1
+"let g:buftabline_seperators=1
+"nmap <M-1> <Plug>BufTabLine.Go(1)
+"nmap <M-2> <Plug>BufTabLine.Go(2)
+"nmap <M-3> <Plug>BufTabLine.Go(3)
+"nmap <M-4> <Plug>BufTabLine.Go(4)
+"nmap <M-5> <Plug>BufTabLine.Go(5)
+"nmap <M-6> <Plug>BufTabLine.Go(6)
+"nmap <M-7> <Plug>BufTabLine.Go(7)
+"nmap <M-8> <Plug>BufTabLine.Go(8)
+"nmap <M-9> <Plug>BufTabLine.Go(9)
+"nmap <M-0> <Plug>BufTabLine.Go(10)
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-powerline
+" => statusline
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-" let g:airline_left_sep = '»'
-" let g:airline_left_sep = '▶'
-" let g:airline_right_sep = '«'
-" let g:airline_right_sep = '◀'
-" let g:airline_symbols.crypt = '🔒'
-" let g:airline_symbols.linenr = '☰'
-" let g:airline_symbols.linenr = '␊'
-" let g:airline_symbols.linenr = '␤'
-" let g:airline_symbols.linenr = '¶'
-" let g:airline_symbols.maxlinenr = ''
-" let g:airline_symbols.maxlinenr = '㏑'
-" let g:airline_symbols.branch = '⎇'
-" let g:airline_symbols.paste = 'ρ'
-" let g:airline_symbols.paste = 'Þ'
-" let g:airline_symbols.paste = '∥'
-" let g:airline_symbols.spell = 'Ꞩ'
-" let g:airline_symbols.notexists = '∄'
-" let g:airline_symbols.whitespace = 'Ξ'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts = 1
+let g:airline_symbols.crypt = ''
+"let g:airline_symbols.readonly = ''
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.maxlinenr = ''
+"let g:airline_symbols.maxlinenr = ''
+""let g:airline_symbols.branch = '⎇'
+"let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+"let g:airline_symbols.paste = '∥'
+let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = '☲'
+let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = '«'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.readonly = '⭤'
+let g:airline_symbols.linenr = '⭡'
 
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
+let g:airline#extensions#tabline#left_alt_sep = '|'
+let g:airline#extensions#tabline#left_sep= ''
 
-let g:airline#extensions#tabline#enabled = 0
-let g:airline#extensions#tabline#switch_buffers_and_tabs = 0
-let g:airline#extensions#tabline#show_buffers = 1
-
-let g:Powerline_symbols='fancy'
-let g:Powerline_cache_enabled = 1
-let g:Powerline_dividers_override = ['', '', '', '«']
-let g:Powerline_mode_V='V·LINE'
-let g:Powerline_mode_cv='V·BLOCK'
-let g:Powerline_mode_S='S·LINE'
-let g:Powerline_mode_cs='S·BLOCK'
-let g:Powerline_symbols_override = {
-            \ 'BRANCH': '¶',
-            \ 'LINE': '㏑',
-            \ 'RO' : '🔒',
-            \ 'WHITESPACE' : '☲',
-            \ }
+nmap <M-1> <Plug>AirlineSelectTab1
+nmap <M-2> <Plug>AirlineSelectTab2
+nmap <M-3> <Plug>AirlineSelectTab3
+nmap <M-4> <Plug>AirlineSelectTab4
+nmap <M-5> <Plug>AirlineSelectTab5
+nmap <M-6> <Plug>AirlineSelectTab6
+nmap <M-7> <Plug>AirlineSelectTab7
+nmap <M-8> <Plug>AirlineSelectTab8
+nmap <M-9> <Plug>AirlineSelectTab9
+nmap <M--> <Plug>AirlineSelectPrevTab
+nmap <M-+> <Plug>AirlineSelectNextTab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack

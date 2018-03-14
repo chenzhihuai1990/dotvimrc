@@ -6,7 +6,12 @@
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
 "
-call plug#begin('~/vimfiles/plugged')
+if has('win')
+    let g:vimrc = '$HOME/vimfiles/'
+else
+    let g:vimrc = '~/.vim/'
+endif
+call plug#begin(g:vimrc.'plugged')
 
 " Make sure you use single quotes
 
@@ -24,7 +29,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 "Plug 'maralla/completor.vim'
 "Plug 'roxma/nvim-completion-manager'
-Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
+"Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 
@@ -33,8 +38,6 @@ Plug 'raimondi/delimitmate'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
 Plug 'gregsexton/matchtag'
-Plug 'w0ng/vim-hybrid'
-Plug 'chriskempson/base16-vim'
 Plug 'morhetz/gruvbox'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
@@ -52,25 +55,16 @@ Plug 'rhysd/vim-grammarous'
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 't9md/vim-choosewin'
-Plug 'shougo/unite.vim'
-Plug 'ap/vim-buftabline'
+"Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'hecal3/vim-leader-guide'
 
-"Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'chriskempson/base16-vim'
-if has('gvim')
-    Plug 'chenzhihuai1990/vim-powerline', {'branch' : 'develop'}
-else
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-endif
 Plug 'mbbill/undotree'
 Plug 'ctrlpvim/ctrlp.vim'
-"Plug 'mhinz/vim-signify'
-Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+"Plug 'airblade/vim-gitgutter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands

@@ -159,7 +159,7 @@ if has("gui_running")
     set guioptions-=T
     set guioptions-=e
     set t_Co=256
-    set guitablabel=%M\ %t
+    "set guitablabel=%M\ %t
 endif
 
 " Set utf8 as standard encoding and en_US as the standard language
@@ -174,18 +174,20 @@ if has('multi_byte_ime')
 endif
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guifont=Monaco:h9
-    set guifontwide=kaiti:h11
-    set linespace=-1
-    set guioptions-=m "no menu
-    set guioptions-=T "no toolbar
-    set t_Co=256
-    set guitablabel=%M\ %t
+    if has('win32') || has('win64')
+        set guifont=Monaco\ for\ Powerline\ 9
+        set guifontwide=kaiti:h11
+        set linespace=1
+        set guioptions-=m "no menu
+        set guioptions-=T "no toolbar
+        set t_Co=256
+    endif
+    "set guitablabel=%M\ %t
 endif
 
 function! PatchForDarkColorscheme() abort
     "hi Normal guifg=#bbbbbb
-    hi Cursor guifg=black guibg=darkorange
+    hi Cursor guifg=black guibg=darkorange gui=none term=none cterm=none
     hi CursorIM guifg=black guibg=darkorange
     hi Search guibg=NONE guifg=#e0e000 gui=underline
     hi IncSearch guibg=black guifg=#e0e000
@@ -194,16 +196,16 @@ function! PatchForDarkColorscheme() abort
     hi Folded gui=underline guifg=#909aa0
     hi CursorLineNr guifg=#868886 gui=NONE
     hi MatchParen guifg=NONE guibg=NONE gui=bold,underline
-    hi Visual guibg=#606060
+    hi Visual guibg=#606060 gui=none term=none cterm=none
     hi link SpecialKey Comment
 endfunction
 set background=dark
 if has('gui_running') || has('nvim')
     colorscheme gruvbox
-    "augroup on_change_colorschema
-        "autocmd!
-        "autocmd ColorScheme * call PatchForDarkColorscheme()
-    "augroup END
+    augroup on_change_colorschema
+        autocmd!
+        autocmd ColorScheme * call PatchForDarkColorscheme()
+    augroup END
 else
     try
         colorscheme gruvbox
@@ -226,12 +228,21 @@ if exists("+undofile")
     " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
     " :help undo-persistence
     " This is only present in 7.3+
-    let homedir = expand($HOME).'\vimfiles\undo'
-    if isdirectory($HOME . '\vimfiles\undo') == 0
-        :execute ':silent !mkdir '.homedir
+    if has('win32') || has('win64')
+        let homedir = expand($HOME).'\vimfiles\undo'
+        if isdirectory($HOME . '\vimfiles\undo') == 0
+            :execute ':silent !mkdir '.homedir
+        endif
+        set undodir=./vimfiles/undo//
+        set undodir+=./vimfiles/undo//
+    else
+        let homedir = '~\.vim\undo'
+        if isdirectory(homedir) == 0
+            :execute ':silent !mkdir '.homedir
+        endif
+        set undodir=./.vim/undo//
+        set undodir+=./.vim/undo//
     endif
-    set undodir=./vimfiles/undo//
-    set undodir+=~/vimfiles/undo//
     set undofile
 endif
 
