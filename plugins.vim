@@ -6,7 +6,7 @@
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
 "
-if has('win')
+if has('win32') || has('win64')
     let g:vimrc = '$HOME/vimfiles/'
 else
     let g:vimrc = '~/.vim/'
@@ -29,6 +29,9 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 "Plug 'maralla/completor.vim'
 "Plug 'roxma/nvim-completion-manager'
+if has('win32') || has('win64')
+    Plug 'snakeleon/youcompleteme-x64'
+endif
 "Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'

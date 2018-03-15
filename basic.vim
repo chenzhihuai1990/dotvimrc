@@ -43,6 +43,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maximizing window when start
+au GUIEnter * simalt ~x
 " Sets how many lines of history VIM has to remember
 set history=500
 
@@ -175,13 +177,15 @@ endif
 " Set extra options when running in GUI mode
 if has("gui_running")
     if has('win32') || has('win64')
+        set guifont=Monaco\ for\ Powerline:h9
+    else
         set guifont=Monaco\ for\ Powerline\ 9
+    endif
         set guifontwide=kaiti:h11
         set linespace=1
         set guioptions-=m "no menu
         set guioptions-=T "no toolbar
         set t_Co=256
-    endif
     "set guitablabel=%M\ %t
 endif
 
