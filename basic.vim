@@ -43,6 +43,8 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Maximizing window when start
+au GUIEnter * simalt ~x
 " Sets how many lines of history VIM has to remember
 set history=500
 

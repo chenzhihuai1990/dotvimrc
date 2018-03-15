@@ -6,7 +6,7 @@
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
 "
-if has('win')
+if has('win32') || has('win64')
     let g:vimrc = '$HOME/vimfiles/'
 else
     let g:vimrc = '~/.vim/'
@@ -29,6 +29,17 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'mattn/emmet-vim'
 "Plug 'maralla/completor.vim'
 "Plug 'roxma/nvim-completion-manager'
+let g:deoplete#enable_at_startup = 1
+if has('win32') || has('win64')
+    Plug 'snakeleon/youcompleteme-x64'
+endif
+"if has('nvim')
+    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+    "Plug 'Shougo/deoplete.nvim'
+    "Plug 'roxma/nvim-yarp'
+    "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
 "Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'

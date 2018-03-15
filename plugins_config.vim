@@ -1,3 +1,5 @@
+let g:python3_host_prog = "c:/python36/python.exe"
+
 """"""""""""""""""""""""""""""
 " => choosewin
 """"""""""""""""""""""""""""""
@@ -41,6 +43,7 @@ let g:ycm_key_detailed_diagnostics = '<leader>dd'
 nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
 let g:ycm_keep_logfiles = 1
 let g:ycm_add_preview_to_completeopt = 1
+let g:ycm_autoclose_preview_window_after_completion = 0
 let g:ycm_always_populate_location_list = 1
 let g:ycm_complete_in_comments=0
 let g:ycm_collect_identifiers_from_tags_files = 1
@@ -206,11 +209,22 @@ nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
-let g:airline_powerline_fonts = 1
+
+"let g:airline_powerline_fonts = 1
+let g:airline_symbols_ascii = 1
+" common symbol with unicode
+let g:airline_left_alt_sep = ''
+let g:airline_right_alt_sep = '«'
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.whitespace = 'Ξ'
+"let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.readonly='RO'
+let g:airline_symbols.maxlinenr = ''
+
+" powerline symbol:
 let g:airline_symbols.crypt = ''
 "let g:airline_symbols.readonly = ''
-"let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.maxlinenr = ''
 "let g:airline_symbols.maxlinenr = ''
 ""let g:airline_symbols.branch = '⎇'
 "let g:airline_symbols.paste = 'ρ'
@@ -219,10 +233,6 @@ let g:airline_symbols.paste = 'Þ'
 let g:airline_symbols.notexists = '∄'
 let g:airline_symbols.whitespace = '☲'
 let g:airline_symbols.spell = 'Ꞩ'
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = '«'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'
