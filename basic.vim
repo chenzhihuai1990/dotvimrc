@@ -151,10 +151,16 @@ set foldcolumn=1
 syntax enable
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
 
+if has("terminfo")
+  set t_Co=16
+  set t_AB=<Esc>[%?%p1%{8}%<%t%p1%{40}%+%e%p1%{92}%+%;%dm
+  set t_AF=<Esc>[%?%p1%{8}%<%t%p1%{30}%+%e%p1%{82}%+%;%dm
+else
+  set t_Co=16
+  set t_Sf=<Esc>[3%dm
+  set t_Sb=<Esc>[4%dm
+endif
 
 " Set extra options when running in GUI mode
 if has("gui_running")

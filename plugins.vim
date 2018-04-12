@@ -40,7 +40,7 @@ endif
     "Plug 'roxma/nvim-yarp'
     "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-"Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
+Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 
@@ -84,7 +84,6 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-repeat'
-Plug 'xolox/vim-session'
 Plug 'easymotion/vim-easymotion'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
