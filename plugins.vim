@@ -44,7 +44,7 @@ Plug 'davidhalter/jedi-vim'
     "Plug 'roxma/nvim-yarp'
     "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-"Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
+Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 

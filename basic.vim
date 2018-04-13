@@ -155,19 +155,6 @@ set foldcolumn=1
 " Enable syntax highlighting
 syntax enable
 
-" Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
-endif
-
-
-" Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    "set guitablabel=%M\ %t
-endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
@@ -186,13 +173,13 @@ if has("gui_running")
     else
         set guifont=Monaco\ for\ Powerline\ 9
     endif
-        set guifontwide=kaiti:h11
-        set linespace=1
-        set guioptions-=m "no menu
-        set guioptions-=T "no toolbar
-        set t_Co=256
+    set guifontwide=kaiti:h11
+    set linespace=1
+    set guioptions-=m "no menu
+    set guioptions-=T "no toolbar
     "set guitablabel=%M\ %t
 endif
+set t_Co=256
 
 function! PatchForDarkColorscheme() abort
     "hi Normal guifg=#bbbbbb
