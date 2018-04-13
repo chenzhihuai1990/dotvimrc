@@ -6,6 +6,8 @@
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
 "
+let g:plug_window = 'new'
+
 if has('win32') || has('win64')
     let g:vimrc = '$HOME/vimfiles/'
 else
@@ -32,10 +34,10 @@ Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
 "Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
 if has('win32') || has('win64')
-    Plug 'snakeleon/youcompleteme-x64'
-else
-    Plug 'Valloric/youcompleteme'
+    "Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
 endif
+Plug 'davidhalter/jedi-vim'
+"Plug 'python-mode/python-mode'
 "if has('nvim')
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -43,7 +45,7 @@ endif
     "Plug 'roxma/nvim-yarp'
     "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-"Plug 'valloric/youcompleteme', {'do' : 'python ./install.py --msvc=14 --clang-completer', 'for':'cpp, c, py, html, css, js'}
+Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 
@@ -105,6 +107,7 @@ Plug 'tmhedberg/matchit'
 "Plug 'maonx/vimim'
 Plug 'xolox/vim-misc'
 
+"Plug 'ryanoasis/vim-devicons'
 "" On-demand loading
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 

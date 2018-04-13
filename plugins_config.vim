@@ -36,6 +36,13 @@ let g:vimtex_view_general_options
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
+let g:ale_sign_error = '*'
+let g:ale_sign_warning = '·'
+let g:ale_sign_info = '~'
+let g:ale_sign_style_error = '>'
+let g:ale_sign_style_warning = '-'
+
+let g:ale_completion_enabled=0
 if has('win32') || has('win64')
     let g:ycm_global_ycm_extra_conf = '~\vimfiles\plugged\YouCompleteMe\python\.ycm_extra_conf.py'
 endif
@@ -108,12 +115,14 @@ set grepprg=/bin/grep\ -nH
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Nerd Tree
+" => Nerd Tree & Tagbar
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
+
+let g:tagbar_left=0 
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,7 +240,7 @@ let g:airline_symbols.crypt = ''
 let g:airline_symbols.paste = 'Þ'
 "let g:airline_symbols.paste = '∥'
 let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = '☲'
+"let g:airline_symbols.whitespace = '☲'
 let g:airline_symbols.spell = 'Ꞩ'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
