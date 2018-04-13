@@ -240,7 +240,7 @@ if exists("+undofile")
         set undodir=./vimfiles/undo//
         set undodir+=./vimfiles/undo//
     else
-        let homedir = '~\.vim\undo'
+        let homedir = expand($HOME).'/.vim/undo'
         if isdirectory(homedir) == 0
             :execute ':silent !mkdir '.homedir
         endif
@@ -320,6 +320,8 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+
+inoremap jj <Esc>
 vnoremap < <gv
 vnoremap > >gv
 map Y y$

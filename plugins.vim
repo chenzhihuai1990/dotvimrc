@@ -27,11 +27,14 @@ Plug 'scrooloose/nerdcommenter'
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
+Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
 "Plug 'maralla/completor.vim'
 "Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
 if has('win32') || has('win64')
     Plug 'snakeleon/youcompleteme-x64'
+else
+    Plug 'Valloric/youcompleteme'
 endif
 "if has('nvim')
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -84,7 +87,7 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-repeat'
-Plug 'xolox/vim-session'
+"Plug 'xolox/vim-session'
 Plug 'easymotion/vim-easymotion'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
