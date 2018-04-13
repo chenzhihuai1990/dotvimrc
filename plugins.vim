@@ -6,6 +6,8 @@
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
 "
+let g:plug_window = 'new'
+
 if has('win32') || has('win64')
     let g:vimrc = '$HOME/vimfiles/'
 else
@@ -31,8 +33,10 @@ Plug 'mattn/emmet-vim'
 "Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
 if has('win32') || has('win64')
-    Plug 'snakeleon/youcompleteme-x64'
+    "Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
 endif
+Plug 'davidhalter/jedi-vim'
+"Plug 'python-mode/python-mode'
 "if has('nvim')
     "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -84,7 +88,7 @@ Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over'
 Plug 'tpope/vim-repeat'
-Plug 'xolox/vim-session'
+"Plug 'xolox/vim-session'
 Plug 'easymotion/vim-easymotion'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
@@ -102,6 +106,7 @@ Plug 'tmhedberg/matchit'
 "Plug 'maonx/vimim'
 Plug 'xolox/vim-misc'
 
+"Plug 'ryanoasis/vim-devicons'
 "" On-demand loading
 "Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 

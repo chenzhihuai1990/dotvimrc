@@ -52,6 +52,11 @@ set history=500
 filetype plugin on
 filetype indent on
 
+
+" Input Method:
+set iminsert=0
+set imdisable
+
 " Set to auto read when a file is changed from the outside
 set autoread
 
@@ -320,6 +325,7 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
+imap jk <Esc>
 vnoremap < <gv
 vnoremap > >gv
 map Y y$
