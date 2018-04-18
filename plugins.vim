@@ -33,7 +33,7 @@ Plug 'mattn/emmet-vim'
 "Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
 if has('win32') || has('win64')
-    "Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
+    Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
 endif
 Plug 'davidhalter/jedi-vim'
 "Plug 'python-mode/python-mode'
@@ -44,7 +44,7 @@ Plug 'davidhalter/jedi-vim'
     "Plug 'roxma/nvim-yarp'
     "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
 
@@ -65,6 +65,7 @@ Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'rhysd/vim-grammarous'
+Plug 'KabbAmine/zeavim.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface

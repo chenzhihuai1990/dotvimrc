@@ -31,7 +31,6 @@
 "    -> Visual mode related
 "    -> Moving around, tabs and buffers
 "    -> Status line
-"    -> Editing mappings
 "    -> vimgrep searching and cope displaying
 "    -> Spell checking
 "    -> Misc
@@ -62,6 +61,7 @@ set autoread
 
 " With a map leader it's possible to do extra key combinations
 " like <leader>w saves the current file
+let g:maplocalleader= ","
 let mapleader = "\<space>"
 let g:mapleader = "\<space>"
 
@@ -312,22 +312,6 @@ if has("autocmd")
     autocmd BufWritePre *.txt,*.js,*.py,*.wiki,*.sh,*.coffee :call CleanExtraSpaces()
 endif
 
-imap jk <Esc>
-vnoremap < <gv
-vnoremap > >gv
-map Y y$
-nnoremap j gj
-nnoremap k gk
-vnoremap j gj
-vnoremap k gk
-nnoremap * *zv
-nnoremap # #zv
-nnoremap n nzv
-nnoremap N Nzv
-inoremap <C-BS> <C-w>
-inoremap <C-S> <C-o>:update<Cr>
-nnoremap <C-S> :update<Cr>
-inoremap <ESC> <ESC>:set iminsert=0<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Spell checking
