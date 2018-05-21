@@ -45,9 +45,9 @@ Plug 'davidhalter/jedi-vim'
     "Plug 'roxma/nvim-yarp'
     "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-Plug 'valloric/youcompleteme'
+"Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
@@ -55,7 +55,7 @@ Plug 'raimondi/delimitmate'
 "Plug 'MatchTagAlways'
 Plug 'gregsexton/matchtag'
 Plug 'morhetz/gruvbox'
-Plug 'kien/rainbow_parentheses.vim'
+"Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
