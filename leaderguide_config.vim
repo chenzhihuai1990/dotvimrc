@@ -80,14 +80,16 @@ let g:lmap.f = {
             \'p': ['e ~/dotvimrc/plugins.vim', 'plugins'],
             \'b': ['e ~/dotvimrc/basic.vim', 'basic'],
             \'f': ['e ~/dotvimrc/filetypes.vim', 'filetype'],
-            \'l': ['e ~/dotvimrc/leaderguide_config.vim', 'leader guide']
+            \'l': ['e ~/dotvimrc/leaderguide_config.vim', 'leader guide'],
+            \'m': ['e ~/dotvimrc/mapping.vim', 'mapping']
             \}
 let g:lmap.t = {
             \'name':'Toggle',
             \'/':['set hlsearch!', 'hlsearch'],
             \'n':['set relativenumber!', 'relativenumber'],
             \'b':['RainbowToggle', 'rainbow'],
-            \'w':['set wrap!', 'wrap']
+            \'w':['set wrap!', 'wrap'],
+            \'t':['cd %:p:h', 'set current dir as work dir']
             \}
 
 let g:lmap.m = {

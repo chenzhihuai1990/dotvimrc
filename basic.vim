@@ -167,11 +167,15 @@ if has('multi_byte_ime')
     highlight CursorIM guifg=NONE guibg=Purple
 endif
 " Set extra options when running in GUI mode
+
 if has("gui_running")
+    "gvim
     if has('win32') || has('win64')
+        " Windows
         set guifont=Monaco\ for\ Powerline:h9
     else
-        set guifont=Monaco\ for\ Powerline\ 9
+        " Non-windows platform
+        set guifont=Monaco\ for\ Powerline\ 9 
     endif
     set guifontwide=kaiti:h11
     set linespace=1
@@ -229,14 +233,14 @@ if exists("+undofile")
         if isdirectory($HOME . '\vimfiles\undo') == 0
             :execute ':silent !mkdir '.homedir
         endif
-        set undodir=./vimfiles/undo//
+        set undodir=~/vimfiles/undo//
         set undodir+=./vimfiles/undo//
     else
         let homedir = '~\.vim\undo'
         if isdirectory(homedir) == 0
             :execute ':silent !mkdir '.homedir
         endif
-        set undodir=./.vim/undo//
+        set undodir=~/.vim/undo//
         set undodir+=./.vim/undo//
     endif
     set undofile

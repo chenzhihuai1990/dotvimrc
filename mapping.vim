@@ -1,5 +1,5 @@
 nnoremap ; :
-nnoremap <leader> ,
+nnoremap <localleader> ,
 
 map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
@@ -24,3 +24,8 @@ inoremap <C-BS> <C-w>
 inoremap <C-S> <C-o>:update<Cr>
 nnoremap <C-S> :update<Cr>
 inoremap <ESC> <ESC>:set iminsert=0<CR>
+
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
