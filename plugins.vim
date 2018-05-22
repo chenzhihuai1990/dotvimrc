@@ -16,8 +16,6 @@ endif
 call plug#begin(g:vimrc.'plugged')
 
 " Make sure you use single quotes
-
-
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -44,7 +42,6 @@ Plug 'ervandew/supertab'
 "Plug 'MatchTagAlways'
 Plug 'gregsexton/matchtag'
 Plug 'morhetz/gruvbox'
-"Plug 'kien/rainbow_parentheses.vim'
 Plug 'yggdroot/indentline'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -54,12 +51,13 @@ Plug 'mileszs/ack.vim'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'rhysd/vim-grammarous'
+Plug 'rhysd/vim-grammarous', {'for': 'txt'}
 Plug 'KabbAmine/zeavim.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'henrik/vim-indexed-search'
 Plug 't9md/vim-choosewin'
 "Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
@@ -68,7 +66,7 @@ Plug 'hecal3/vim-leader-guide'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mbbill/undotree', {'on': 'UndoTreeToggle'}
-Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlP'}
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mhinz/vim-signify'
 "Plug 'airblade/vim-gitgutter'
 
@@ -82,11 +80,12 @@ Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
 Plug 'tpope/vim-repeat'
 "Plug 'xolox/vim-session'
 "Plug 'svermeulen/vim-easyclip'
-Plug 'thinca/vim-quickrun'
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'tpope/vim-speeddating'
 Plug 'danro/rename.vim'
 Plug 'tmhedberg/matchit'
 Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
 "Plug 'keith/investigate.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
