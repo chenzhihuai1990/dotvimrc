@@ -51,6 +51,7 @@ set history=500
 filetype plugin on
 filetype indent on
 
+set clipboard=unnamedplus
 
 " Input Method:
 set iminsert=0
@@ -189,16 +190,11 @@ function! PatchForDarkColorscheme() abort
     "hi Normal guifg=#bbbbbb
     hi Cursor guifg=black guibg=darkorange gui=none term=none cterm=none
     hi CursorIM guifg=black guibg=darkorange
-    hi Search guibg=NONE guifg=#e0e000 gui=underline
-    hi IncSearch guibg=black guifg=#e0e000
-    hi LineNr guifg=#868886
-    hi Conceal guifg=#d77438 font=monaco
     hi Folded gui=underline guifg=#909aa0
-    hi CursorLineNr guifg=#868886 gui=NONE
-    hi MatchParen guifg=NONE guibg=NONE gui=bold,underline
     hi Visual guibg=#606060 gui=none term=none cterm=none
     hi link SpecialKey Comment
 endfunction
+
 set background=dark
 if has('gui_running') || has('nvim')
     colorscheme gruvbox
@@ -236,7 +232,7 @@ if exists("+undofile")
         set undodir=~/vimfiles/undo//
         set undodir+=./vimfiles/undo//
     else
-        let homedir = '~\.vim\undo'
+        let homedir = expand($HOME).'/.vim/undo'
         if isdirectory(homedir) == 0
             :execute ':silent !mkdir '.homedir
         endif

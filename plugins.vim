@@ -29,6 +29,7 @@ Plug 'scrooloose/nerdcommenter'
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
+Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
 "Plug 'maralla/completor.vim'
 "Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
@@ -46,7 +47,7 @@ if has('win32') || has('win64')
 endif
 "Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
-"Plug 'ervandew/supertab'
+Plug 'ervandew/supertab'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display

@@ -13,15 +13,16 @@ nnoremap <silent> <leader> :<c-u>LeaderGuide '<Space>'<CR>
 vnoremap <silent> <leader> :<c-u>LeaderGuideVisual '<Space>'<CR>
 autocmd BufEnter __Tagbar__ noremap <buffer> <leader> <Plug>leaderguide-buffer
 
-" Group names can be defined by filetype. Addsymotion-prefix) the following lines:
+" Group names or direct command can be defined by filetype. Addsymotion-prefix) the following lines:
 call leaderGuide#register_prefix_descriptions('\', 'g:llmap')
-nnoremap <localleader> :<c-u>LeaderGuide  '\'<CR>
-vnoremap <localleader> :<c-u>LeaderGuideVisual  '\'<CR>
+nnoremap <localleader> :<c-u>LeaderGuide  ','<CR>
+vnoremap <localleader> :<c-u>LeaderGuideVisual  ','<CR>
 let g:llmap = {}
 
 
 "nmap <leader><tab> :e #<cr>
 nmap <leader>w :ChooseWin<cr>
+nmap <localleader>g :ChooseWin<Cr>
 let g:lmap.b = {
             \'name': 'Build',
             \'r':['call feedkeys("\<Plug>(quickrun)")', 'quickrun'],

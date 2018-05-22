@@ -1,10 +1,18 @@
 nnoremap ; :
+"nnoremap : <Nop>
 nnoremap <localleader> ,
 
 map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
 map t <plug>(easymotion-tl)
 map T <plug>(easymotion-Tl)
+
+
+" window manager
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
 
 map <buffer> <localleader>w <plug>(easymotion-w)
 
