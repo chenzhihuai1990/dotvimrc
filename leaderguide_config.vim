@@ -21,8 +21,8 @@ let g:llmap = {}
 
 
 "nmap <leader><tab> :e #<cr>
-nmap <leader>w :ChooseWin<cr>
-nmap <localleader>g :ChooseWin<Cr>
+
+
 let g:lmap.b = {
             \'name': 'Build',
             \'r':['call feedkeys("\<Plug>(quickrun)")', 'quickrun'],

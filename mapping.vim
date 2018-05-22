@@ -1,20 +1,25 @@
-nnoremap ; :
-"nnoremap : <Nop>
 nnoremap <localleader> ,
 
+nmap <leader>w :ChooseWin<cr>
+nmap <localleader>w <plug>(easymotion-w)
+nmap <localleader>g ;ChooseWin<Cr>
+nmap <localleader>s ;ChooseWinSwap<Cr>
+nmap <localleader>r ;CtrlPBufTag<Cr>
+nmap <localleader>o ;OverCommandLine<Cr>
+nmap <localleader>a ;Ack 
+
+"change default behavior
+nnoremap <c-h> <c-w><c-h>
+nnoremap <c-j> <c-w><c-j>
+nnoremap <c-k> <c-w><c-k>
+nnoremap <c-l> <c-w><c-l>
+nnoremap ; :
+nnoremap : <Nop>
 map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
 map t <plug>(easymotion-tl)
 map T <plug>(easymotion-Tl)
 
-
-" window manager
-nnoremap <c-h> <c-w><c-h>
-nnoremap <c-j> <c-w><c-j>
-nnoremap <c-k> <c-w><c-k>
-nnoremap <c-l> <c-w><c-l>
-
-map <buffer> <localleader>w <plug>(easymotion-w)
 
 imap jk <Esc>
 vnoremap < <gv

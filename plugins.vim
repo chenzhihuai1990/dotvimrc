@@ -30,18 +30,7 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim'
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-"Plug 'maralla/completor.vim'
-"Plug 'roxma/nvim-completion-manager'
 let g:deoplete#enable_at_startup = 1
-"Plug 'davidhalter/jedi-vim'
-"Plug 'python-mode/python-mode', { 'branch': 'develop' }
-"if has('nvim')
-    "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-    "Plug 'Shougo/deoplete.nvim'
-    "Plug 'roxma/nvim-yarp'
-    "Plug 'roxma/vim-hug-neovim-rpc'
-"endif
 if has('win32') || has('win64')
     Plug 'snakeleon/youcompleteme-x64'
 endif
@@ -78,8 +67,8 @@ Plug 'hecal3/vim-leader-guide'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'mbbill/undotree'
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mbbill/undotree', {'on': 'UndoTreeToggle'}
+Plug 'ctrlpvim/ctrlp.vim', {'on': 'CtrlP'}
 Plug 'mhinz/vim-signify'
 "Plug 'airblade/vim-gitgutter'
 
@@ -89,28 +78,21 @@ Plug 'mhinz/vim-signify'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
-Plug 'osyo-manga/vim-over'
+Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
 Plug 'tpope/vim-repeat'
 "Plug 'xolox/vim-session'
-"Plug 'easymotion/vim-easymotion'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun'
-Plug 'tpope/vim-surround'
-"Plug 'matchit.zip'
 Plug 'tpope/vim-speeddating'
 Plug 'danro/rename.vim'
 Plug 'tmhedberg/matchit'
+Plug 'easymotion/vim-easymotion'
 "Plug 'keith/investigate.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'L9'
-"Plug 'maonx/vimim'
 Plug 'xolox/vim-misc'
-
-"Plug 'ryanoasis/vim-devicons'
-"" On-demand loading
-"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'tpope/vim-sensible'
 
 call plug#end()
