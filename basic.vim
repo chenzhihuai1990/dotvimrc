@@ -51,7 +51,7 @@ set history=500
 filetype plugin on
 filetype indent on
 
-set clipboard=unnamedplus
+set clipboard=unnamed
 
 " Input Method:
 set iminsert=0
@@ -173,10 +173,10 @@ if has("gui_running")
     "gvim
     if has('win32') || has('win64')
         " Windows
-        set guifont=Monaco\ for\ Powerline:h9
+        set guifont=Monaco\ for\ Powerline:h11
     else
         " Non-windows platform
-        set guifont=Monaco\ for\ Powerline\ 9 
+        set guifont=Monaco\ for\ Powerline\ 11 
     endif
     set guifontwide=kaiti:h11
     set linespace=1

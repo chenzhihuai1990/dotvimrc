@@ -73,6 +73,7 @@ Plug 'mhinz/vim-signify'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'vim-scripts/zoom.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
