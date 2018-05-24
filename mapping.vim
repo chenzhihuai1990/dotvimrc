@@ -7,6 +7,8 @@ nmap <localleader>s ;ChooseWinSwap<Cr>
 nmap <localleader>r ;CtrlPBufTag<Cr>
 nmap <localleader>o ;OverCommandLine<Cr>
 nmap <localleader>a ;Ack 
+nmap <localleader>l ;ZoomIn<Cr>
+nmap <localleader>s ;ZoomOut<Cr>
 
 "change default behavior
 nnoremap <c-h> <c-w><c-h>

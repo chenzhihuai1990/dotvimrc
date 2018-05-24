@@ -90,7 +90,9 @@ let g:lmap.t = {
             \'n':['set relativenumber!', 'relativenumber'],
             \'b':['RainbowToggle', 'rainbow'],
             \'w':['set wrap!', 'wrap'],
-            \'t':['cd %:p:h', 'set current dir as work dir']
+            \'t':['cd %:p:h', 'set current dir as work dir'],
+            \'l':['ZoomIn', 'Larger font'],
+            \'s':['ZoomOut', 'Smaller font'],
             \}
 
 let g:lmap.m = {
