@@ -43,6 +43,7 @@ nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 
+
 nmap <localleader>1 <Plug>AirlineSelectTab1
 nmap <localleader>2 <Plug>AirlineSelectTab2
 nmap <localleader>3 <Plug>AirlineSelectTab3
