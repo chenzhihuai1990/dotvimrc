@@ -26,16 +26,15 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-let g:deoplete#enable_at_startup = 1
 if has('win32') || has('win64')
     Plug 'snakeleon/youcompleteme-x64'
+else
+    Plug 'valloric/youcompleteme'
 endif
-"Plug 'valloric/youcompleteme'
 Plug 'raimondi/delimitmate'
-Plug 'ervandew/supertab'
-
+"Plug 'ervandew/supertab'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -73,8 +72,8 @@ Plug 'mhinz/vim-signify'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'vim-scripts/zoom.vim'
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
+Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
@@ -83,7 +82,7 @@ Plug 'tpope/vim-repeat'
 "Plug 'svermeulen/vim-easyclip'
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'tpope/vim-speeddating'
-Plug 'danro/rename.vim'
+Plug 'danro/rename.vim', {'on': 'Rename'}
 Plug 'tmhedberg/matchit'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
