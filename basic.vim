@@ -173,10 +173,10 @@ if has("gui_running")
     "gvim
     if has('win32') || has('win64')
         " Windows
-        set guifont=Monaco\ for\ Powerline:h11
+        set guifont=Monaco\ for\ Powerline:h10
     else
         " Non-windows platform
-        set guifont=Monaco\ for\ Powerline\ 11 
+        set guifont=Monaco\ for\ Powerline\ 10 
     endif
     set guifontwide=kaiti:h11
     set linespace=1

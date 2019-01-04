@@ -1,6 +1,6 @@
 nnoremap <localleader> ,
 
-nmap <leader>w :ChooseWin<cr>
+nmap <leader>w ;ChooseWin<cr>
 nmap <localleader>w <plug>(easymotion-w)
 nmap <localleader>g ;ChooseWin<Cr>
 nmap <localleader>s ;ChooseWinSwap<Cr>

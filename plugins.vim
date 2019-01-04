@@ -28,10 +28,20 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-if has('win32') || has('win64')
-    Plug 'snakeleon/youcompleteme-x64'
+"if has('nvim')
+  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+  "Plug 'Shougo/deoplete.nvim'
+  "Plug 'roxma/nvim-yarp'
+  "Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
+if has('win32') 
+    Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
+elseif has("win64")
+    Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
 else
-    Plug 'valloric/youcompleteme'
+    Plug 'valloric/youcompleteme', {'for': 'cpp'}
 endif
 Plug 'raimondi/delimitmate'
 "Plug 'ervandew/supertab'
@@ -39,7 +49,7 @@ Plug 'raimondi/delimitmate'
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
-Plug 'gregsexton/matchtag'
+Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 
@@ -47,11 +57,11 @@ Plug 'yggdroot/indentline'
 " => Integrations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale',{'for':'py'}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'rhysd/vim-grammarous', {'for': 'txt'}
-Plug 'KabbAmine/zeavim.vim'
+"Plug 'KabbAmine/zeavim.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
@@ -95,3 +105,4 @@ Plug 'xolox/vim-misc'
 Plug 'tpope/vim-sensible'
 
 call plug#end()
+let g:deoplete#enable_at_startup = 1

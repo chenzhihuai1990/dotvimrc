@@ -1,5 +1,3 @@
-let g:python3_host_prog = "c:/python36/python.exe"
-
 """"""""""""""""""""""""""""""
 " => choosewin
 """"""""""""""""""""""""""""""
@@ -36,16 +34,15 @@ let g:vimtex_view_general_options
 """"""""""""""""""""""""""""""
 " => YouCompleteMe
 """"""""""""""""""""""""""""""
+
+
 let g:ale_sign_error = '*'
 let g:ale_sign_warning = '·'
 let g:ale_sign_info = '~'
 let g:ale_sign_style_error = '>'
 let g:ale_sign_style_warning = '-'
-
 let g:ale_completion_enabled=0
-if has('win32') || has('win64')
-    let g:ycm_global_ycm_extra_conf = '~\vimfiles\plugged\YouCompleteMe\python\.ycm_extra_conf.py'
-endif
+
 let g:ycm_key_detailed_diagnostics = '<leader>dd'
 nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
 let g:ycm_keep_logfiles = 1
@@ -56,7 +53,7 @@ let g:ycm_complete_in_comments=0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_error_symbol = '»'
-let g:ycm_warning_symbol = '∥'
+let g:ycm_warning_symbol = 'w'
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """"""""""""""""""""""""""""""
@@ -219,29 +216,13 @@ if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
 
-"let g:airline_powerline_fonts = 1
-let g:airline_symbols_ascii = 1
-" common symbol with unicode
-let g:airline_left_alt_sep = ''
-let g:airline_right_alt_sep = '«'
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-let g:airline_symbols.whitespace = 'Ξ'
-"let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.readonly='RO'
-let g:airline_symbols.maxlinenr = ''
 
 " powerline symbol:
 let g:airline_symbols.crypt = ''
-"let g:airline_symbols.readonly = ''
-"let g:airline_symbols.maxlinenr = ''
-""let g:airline_symbols.branch = '⎇'
-"let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-"let g:airline_symbols.paste = '∥'
-let g:airline_symbols.notexists = '∄'
-"let g:airline_symbols.whitespace = '☲'
-let g:airline_symbols.spell = 'Ꞩ'
+let g:airline_symbols.paste = 'P'
+"let g:airline_symbols.notexists = '∄'
+let g:airline_symbols.whitespace = '☲'
+let g:airline_symbols.spell = 'S'
 let g:airline_symbols.branch = '⭠'
 let g:airline_symbols.readonly = '⭤'
 let g:airline_symbols.linenr = '⭡'

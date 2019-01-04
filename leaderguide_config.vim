@@ -82,7 +82,8 @@ let g:lmap.f = {
             \'b': ['e ~/dotvimrc/basic.vim', 'basic'],
             \'f': ['e ~/dotvimrc/filetypes.vim', 'filetype'],
             \'l': ['e ~/dotvimrc/leaderguide_config.vim', 'leader guide'],
-            \'m': ['e ~/dotvimrc/mapping.vim', 'mapping']
+            \'m': ['e ~/dotvimrc/mapping.vim', 'mapping'],
+            \'v': ['e ~/_vimrc', 'edit vimrc']
             \}
 let g:lmap.t = {
             \'name':'Toggle',
