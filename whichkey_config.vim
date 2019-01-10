@@ -6,6 +6,9 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map={}
 
+let g:which_key_map[' '] = ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Ace-jump']
+let g:which_key_map['<tab>'] = [':e #<cr>', 'last buffer']
+
 let g:which_key_map.b = {
             \'name': 'Build',
             \'r':['call feedkeys("\<Plug>(quickrun)")', 'quickrun'],
@@ -59,14 +62,14 @@ let g:which_key_map.o = {
             \ 't'    : ['TagbarToggle'   , 'Tagbar']
             \ }
 let g:which_key_map.f = {
-            \ 'name' : '+Config'                               ,
-            \ 'c'    : ['e ~/dotvimrc/plugins_config.vim'     , 'configuration'] ,
-            \ 'p'    : ['e ~/dotvimrc/plugins.vim'            , 'plugins']       ,
-            \ 'b'    : ['e ~/dotvimrc/basic.vim'              , 'basic']         ,
-            \ 'f'    : ['e ~/dotvimrc/filetypes.vim'          , 'filetype']      ,
-            \ 'l'    : ['e ~/dotvimrc/leaderguide_config.vim' , 'leader guide']  ,
-            \ 'm'    : ['e ~/dotvimrc/mapping.vim'            , 'mapping']       ,
-            \ 'v'    : ['e ~/_vimrc'                          , 'edit vimrc']
+            \ 'name' : '+Config'                           ,
+            \ 'c'    : ['e ~/dotvimrc/plugins_config.vim'  , 'configuration']  ,
+            \ 'p'    : ['e ~/dotvimrc/plugins.vim'         , 'plugins']        ,
+            \ 'b'    : ['e ~/dotvimrc/basic.vim'           , 'basic']          ,
+            \ 'f'    : ['e ~/dotvimrc/filetypes.vim'       , 'filetype']       ,
+            \ 'w'    : ['e ~/dotvimrc/whichkey_config.vim' , 'which keyguide'] ,
+            \ 'm'    : ['e ~/dotvimrc/mapping.vim'         , 'mapping']        ,
+            \ 'v'    : ['e ~/_vimrc'                       , 'edit vimrc']
             \ }
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,

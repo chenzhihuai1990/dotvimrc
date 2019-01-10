@@ -1,14 +1,12 @@
 nnoremap <localleader> ,
 
 nmap <leader>w ;ChooseWin<cr>
-nmap <localleader>w <plug>(easymotion-w)
-nmap <localleader>g ;ChooseWin<Cr>
-nmap <localleader>s ;ChooseWinSwap<Cr>
-nmap <localleader>r ;CtrlPBufTag<Cr>
-nmap <localleader>o ;OverCommandLine<Cr>
-nmap <localleader>a ;Ack 
-nmap <localleader>l ;ZoomIn<Cr>
-nmap <localleader>s ;ZoomOut<Cr>
+"nmap <leader>w <plug>(easymotion-w)
+"nmap <leader>g ;ChooseWin<Cr>
+"nmap <leader>s ;ChooseWinSwap<Cr>
+nmap <leader>r ;CtrlPBufTag<Cr>
+"nmap <leader>o ;OverCommandLine<Cr>
+nmap <leader>a ;Ack 
 
 "change default behavior
 nnoremap <c-h> <c-w><c-h>
@@ -44,7 +42,6 @@ nnoremap <c-h> <c-w><c-h>
 nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
-
 
 nmap <localleader>1 <Plug>AirlineSelectTab1
 nmap <localleader>2 <Plug>AirlineSelectTab2

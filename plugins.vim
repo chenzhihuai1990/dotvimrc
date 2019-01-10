@@ -26,8 +26,9 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'mattn/emmet-vim', {'for': 'html'}
-Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
+
+"Plug 'mattn/emmet-vim', {'for': 'html'}
+"Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
 "if has('nvim')
   "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 "else
@@ -35,11 +36,24 @@ Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
   "Plug 'roxma/nvim-yarp'
   "Plug 'roxma/vim-hug-neovim-rpc'
 "endif
-"Plug 'tbodt/deoplete-tabnine', { 'do': 'powershell.exe .\install.ps1' }
-if has('win32') 
-    Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
-elseif has("win64")
+"
+if has("win32") || has("win64")
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+        \ 'for' : 'cpp',
+        \ }
+else
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ 'for' : 'cpp',
+        \ }
+endif
+if has("win64")
     Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
+elseif has('win32') 
+    Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
 else
     Plug 'valloric/youcompleteme', {'for': 'cpp'}
 endif
@@ -49,6 +63,7 @@ Plug 'raimondi/delimitmate'
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
+"Plug 'vim-scripts/showpairs-mutated'
 Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
@@ -66,11 +81,14 @@ Plug 'rhysd/vim-grammarous', {'for': 'txt'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'henrik/vim-indexed-search'
+Plug 'henrik/vim-indexed-search' "Enchance the experiment for searching
+Plug 'junegunn/vim-slash'
+
 Plug 't9md/vim-choosewin'
 "Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'hecal3/vim-leader-guide'
+"Plug 'hecal3/vim-leader-guide'
+Plug 'liuchengxu/vim-which-key'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -105,4 +123,3 @@ Plug 'xolox/vim-misc'
 Plug 'tpope/vim-sensible'
 
 call plug#end()
-let g:deoplete#enable_at_startup = 1

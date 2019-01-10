@@ -15,11 +15,11 @@ let g:vimtex_compiler_latexmk = {
             \     '-pdf',
             \     '-bibtex',
             \     '-verbose',
+            \     '-synctex=1',
+            \   '-file-line-error',
+            \   '-interaction=nonstopmode',
             \ ]
             \}
-let g:vimtex_view_general_viewer='sumatrapdf'
-let g:vimtex_view_general_options
-            \ = '-reuse-instance -forward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 let g:vimtex_view_general_viewer = 'SumatraPDF'
@@ -31,10 +31,19 @@ let g:vimtex_view_general_options
             \ . ':execute ''drop '' . fnameescape(''\%f'')^<CR^>'
             \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
             \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
+let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
-" => YouCompleteMe
+" => AutoComplete 
 """"""""""""""""""""""""""""""
 
+let g:LanguageClient_serverCommands = {
+  \ 'cpp': ['clangd'],
+  \ }
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+let g:LanguageClient_diagnosticsEnable = 0
 
 let g:ale_sign_error = '*'
 let g:ale_sign_warning = '·'
@@ -52,7 +61,7 @@ let g:ycm_always_populate_location_list = 1
 let g:ycm_complete_in_comments=0
 let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_min_num_of_chars_for_completion=2
-let g:ycm_error_symbol = '»'
+let g:ycm_error_symbol = '✖'
 let g:ycm_warning_symbol = 'w'
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
