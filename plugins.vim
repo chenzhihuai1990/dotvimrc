@@ -27,16 +27,9 @@ Plug 'scrooloose/nerdcommenter'
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-"Plug 'mattn/emmet-vim', {'for': 'html'}
-"Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-"if has('nvim')
-  "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"else
-  "Plug 'Shougo/deoplete.nvim'
-  "Plug 'roxma/nvim-yarp'
-  "Plug 'roxma/vim-hug-neovim-rpc'
-"endif
-"
+Plug 'mattn/emmet-vim', {'for': 'html'}
+Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
+
 if has("win32") || has("win64")
     Plug 'autozimu/LanguageClient-neovim', {
         \ 'branch': 'next',
@@ -50,20 +43,22 @@ else
         \ 'for' : 'cpp',
         \ }
 endif
-if has("win64")
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+elseif has("win64")
     Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
 elseif has('win32') 
     Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
 else
     Plug 'valloric/youcompleteme', {'for': 'cpp'}
 endif
+
 Plug 'raimondi/delimitmate'
-"Plug 'ervandew/supertab'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
-"Plug 'vim-scripts/showpairs-mutated'
 Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'

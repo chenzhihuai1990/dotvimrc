@@ -20,17 +20,29 @@ let g:vimtex_compiler_latexmk = {
             \   '-interaction=nonstopmode',
             \ ]
             \}
+if has('nvim')
+    let g:vimtex_compiler_latexmk.backend = 'nvim'
+endif
+
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 
 let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options
-            \ = '-reuse-instance -forward-search @tex @line @pdf'
-            \ . ' -inverse-search "gvim --servername ' . v:servername
-            \ . ' --remote-send \"^<C-\^>^<C-n^>'
-            \ . ':drop \%f^<CR^>:\%l^<CR^>:normal\! zzzv^<CR^>'
-            \ . ':execute ''drop '' . fnameescape(''\%f'')^<CR^>'
-            \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
-            \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+
+if has('nvim')
+    let g:vimtex_view_general_options
+                \ = '-reuse-instance -forward-search @tex @line @pdf'
+                \ . '-inverse-search "nvr --servername ' . v:servername
+                \ . ' --remote-silent \%f -c \%l"'
+else
+    let g:vimtex_view_general_options
+                \ = '-reuse-instance -forward-search @tex @line @pdf'
+                \ . ' -inverse-search "gvim --servername ' . v:servername
+                \ . ' --remote-send \"^<C-\^>^<C-n^>'
+                \ . ':drop \%f^<CR^>:\%l^<CR^>:normal\! zzzv^<CR^>'
+                \ . ':execute ''drop '' . fnameescape(''\%f'')^<CR^>'
+                \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
+                \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
+endif
 autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
 let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
@@ -43,7 +55,6 @@ let g:LanguageClient_serverCommands = {
 nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-let g:LanguageClient_diagnosticsEnable = 0
 
 let g:ale_sign_error = '*'
 let g:ale_sign_warning = '·'
@@ -52,18 +63,25 @@ let g:ale_sign_style_error = '>'
 let g:ale_sign_style_warning = '-'
 let g:ale_completion_enabled=0
 
-let g:ycm_key_detailed_diagnostics = '<leader>dd'
-nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
-let g:ycm_keep_logfiles = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_always_populate_location_list = 1
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_min_num_of_chars_for_completion=2
-let g:ycm_error_symbol = '✖'
-let g:ycm_warning_symbol = 'w'
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+
+if has('nvim')
+    let g:deoplete#enable_at_startup = 1
+else
+    let g:LanguageClient_diagnosticsEnable = 0
+
+    let g:ycm_key_detailed_diagnostics = '<leader>dd'
+    nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
+    let g:ycm_keep_logfiles = 1
+    let g:ycm_add_preview_to_completeopt = 1
+    let g:ycm_autoclose_preview_window_after_completion = 0
+    let g:ycm_always_populate_location_list = 1
+    let g:ycm_complete_in_comments=0
+    let g:ycm_collect_identifiers_from_tags_files = 1
+    let g:ycm_min_num_of_chars_for_completion=2
+    let g:ycm_error_symbol = '✖'
+    let g:ycm_warning_symbol = 'w'
+    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+endif
 
 """"""""""""""""""""""""""""""
 " => bufExplorer plugin

@@ -69,7 +69,7 @@ let g:which_key_map.f = {
             \ 'f'    : ['e ~/dotvimrc/filetypes.vim'       , 'filetype']       ,
             \ 'w'    : ['e ~/dotvimrc/whichkey_config.vim' , 'which keyguide'] ,
             \ 'm'    : ['e ~/dotvimrc/mapping.vim'         , 'mapping']        ,
-            \ 'v'    : ['e ~/_vimrc'                       , 'edit vimrc']
+            \ 'v'    : ['call EditVimrc()', 'edit vimrc']
             \ }
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
@@ -123,4 +123,11 @@ function! AppendBuffersToClose()
             break
         endif
     endfor
+endfunction
+function! EditVimrc()
+    if has('nvim')
+        exec 'e '.stdpath('config').'/init.vim'
+    else
+        exec 'e ~/_vimrc'
+    endif
 endfunction
