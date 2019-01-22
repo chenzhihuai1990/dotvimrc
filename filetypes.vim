@@ -76,3 +76,5 @@ autocmd BufRead *.twig set syntax=html filetype=html
 
 
 autocmd BufEnter *.json set conceallevel=0
+
+autocmd VimEnter *.cpp Tagbar

@@ -36,7 +36,8 @@ let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
 " => AutoComplete 
 """"""""""""""""""""""""""""""
-
+"generate .ycm_extra_conf.py for youcompleteme
+"clang++ -E -x c++ - -v < nul 
 let g:LanguageClient_serverCommands = {
   \ 'cpp': ['clangd'],
   \ }
@@ -44,13 +45,6 @@ nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 let g:LanguageClient_diagnosticsEnable = 0
-
-let g:ale_sign_error = '*'
-let g:ale_sign_warning = '·'
-let g:ale_sign_info = '~'
-let g:ale_sign_style_error = '>'
-let g:ale_sign_style_warning = '-'
-let g:ale_completion_enabled=0
 
 let g:ycm_key_detailed_diagnostics = '<leader>dd'
 nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
@@ -63,6 +57,7 @@ let g:ycm_collect_identifiers_from_tags_files = 1
 let g:ycm_min_num_of_chars_for_completion=2
 let g:ycm_error_symbol = '✖'
 let g:ycm_warning_symbol = 'w'
+let g:ycm_confirm_extra_conf = 0
 autocmd InsertLeave * if pumvisible() == 0|pclose|endif
 
 """"""""""""""""""""""""""""""
