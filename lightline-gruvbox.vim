@@ -136,7 +136,7 @@ let s:p.visual.left = [
 
 if s:style == 'plain'
 	let s:p.tabline.middle = [
-				\ [s:mono5, s:grubg, s:c_mono5, s:c_mono0]]
+				\ [s:mono5, s:grubg, s:c_mono5, s:c_grubg]]
 	let s:p.tabline.right = [
 				\ [s:mono5, s:mono0, s:c_mono5, s:c_mono0]]
 	let s:p.tabline.left = [
@@ -145,7 +145,7 @@ if s:style == 'plain'
 				\ [s:mono0, s:mono5, s:c_mono0, s:c_mono5]]
 else
 	let s:p.tabline.middle = [
-				\ [s:mono4, s:grubg, s:c_mono4, s:c_mono0]]
+				\ [s:mono4, s:grubg, s:c_mono4, s:c_grubg]]
 	let s:p.tabline.right = [
 				\ [s:mono1, s:mono4, s:c_mono1, s:c_mono4],
 				\ [s:mono4, s:mono0, s:c_mono4, s:c_mono0]]
