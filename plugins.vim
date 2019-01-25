@@ -53,7 +53,6 @@ elseif has('win32')
 else
     Plug 'valloric/youcompleteme', {'for': 'cpp'}
 endif
-
 Plug 'raimondi/delimitmate'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
@@ -85,10 +84,14 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 "Plug 'hecal3/vim-leader-guide'
 Plug 'liuchengxu/vim-which-key'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mbbill/undotree', {'on': 'UndoTreeToggle'}
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'chrisbra/Colorizer'
+Plug 'mbbill/undotree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'mhinz/vim-signify'
 "Plug 'airblade/vim-gitgutter'
 

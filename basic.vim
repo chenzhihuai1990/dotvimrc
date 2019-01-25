@@ -182,6 +182,7 @@ if has("gui_running")
     set linespace=1
     set guioptions-=m "no menu
     set guioptions-=T "no toolbar
+    set guioptions-=e "No gui tabline
     "set guitablabel=%M\ %t
 endif
 set t_Co=256
@@ -292,6 +293,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
+set showtabline=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
