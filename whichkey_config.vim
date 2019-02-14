@@ -65,6 +65,7 @@ let g:which_key_map.o = {
 let g:which_key_map.f = {
             \ 'name' : '+Config'                           ,
             \ 'c' : ['e ~/dotvimrc/plugins_config.vim'  , 'configuration'  ]  ,
+            \ 'l' : ['e ~/dotvimrc/lightline.vim.vim'   , 'lightline'      ]  ,
             \ 'p' : ['e ~/dotvimrc/plugins.vim'         , 'plugins'        ]  ,
             \ 'b' : ['e ~/dotvimrc/basic.vim'           , 'basic'          ]  ,
             \ 'f' : ['e ~/dotvimrc/filetypes.vim'       , 'filetype'       ]  ,
