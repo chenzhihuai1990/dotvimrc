@@ -274,17 +274,17 @@ let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtr
 let g:airline#extensions#tabline#left_alt_sep = '|'
 let g:airline#extensions#tabline#left_sep= ''
 
-nmap <M-1> <Plug>AirlineSelectTab1
-nmap <M-2> <Plug>AirlineSelectTab2
-nmap <M-3> <Plug>AirlineSelectTab3
-nmap <M-4> <Plug>AirlineSelectTab4
-nmap <M-5> <Plug>AirlineSelectTab5
-nmap <M-6> <Plug>AirlineSelectTab6
-nmap <M-7> <Plug>AirlineSelectTab7
-nmap <M-8> <Plug>AirlineSelectTab8
-nmap <M-9> <Plug>AirlineSelectTab9
-nmap <M--> <Plug>AirlineSelectPrevTab
-nmap <M-+> <Plug>AirlineSelectNextTab
+"nmap <M-1> <Plug>AirlineSelectTab1
+"nmap <M-2> <Plug>AirlineSelectTab2
+"nmap <M-3> <Plug>AirlineSelectTab3
+"nmap <M-4> <Plug>AirlineSelectTab4
+"nmap <M-5> <Plug>AirlineSelectTab5
+"nmap <M-6> <Plug>AirlineSelectTab6
+"nmap <M-7> <Plug>AirlineSelectTab7
+"nmap <M-8> <Plug>AirlineSelectTab8
+"nmap <M-9> <Plug>AirlineSelectTab9
+"nmap <M--> <Plug>AirlineSelectPrevTab
+"nmap <M-+> <Plug>AirlineSelectNextTab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack
@@ -300,3 +300,24 @@ let g:EasyMotion_do_mapping=0
 let g:quickrun_no_default_key_mappings=1
 
 let g:indentLine_char = ''
+"Input Mehtod
+let g:ywvim_ims=[
+            \['wb', '五笔', 'wubi.ywvim'],
+            \['py', '拼音', 'pinyin.ywvim'],
+            \]
+
+let g:ywvim_py = { 'helpim':'wb', 'gb':0 }
+
+let g:ywvim_zhpunc = 1
+let g:ywvim_listmax = 10
+let g:ywvim_esc_autoff = 0
+let g:ywvim_autoinput = 0
+let g:ywvim_circlecandidates = 1
+let g:ywvim_helpim_on = 1
+let g:ywvim_matchexact = 0
+let g:ywvim_chinesecode = 1
+let g:ywvim_gb = 0
+let g:ywvim_preconv = 'g2b'
+let g:ywvim_conv = ''
+let g:ywvim_lockb = 1
+let g:ywvim_theme = 'dark'

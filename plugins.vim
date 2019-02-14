@@ -117,6 +117,7 @@ Plug 'tpope/vim-surround'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'lotabout/ywvim'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-sensible'
 

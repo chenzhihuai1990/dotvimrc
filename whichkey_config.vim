@@ -75,13 +75,14 @@ let g:which_key_map.f = {
             \ }
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
-            \ '/'    : ['set hlsearch!'       , 'hlsearch']                    ,
-            \ 'n'    : ['set relativenumber!' , 'relativenumber']              ,
-            \ 'b'    : ['RainbowToggle'       , 'rainbow']                     ,
-            \ 'w'    : ['set wrap!'           , 'wrap']                        ,
-            \ 't'    : ['cd %:p:h'            , 'set current dir as work dir'] ,
-            \ 'l'    : ['ZoomIn'              , 'Larger font']                 ,
-            \ 's'    : ['ZoomOut'             , 'Smaller font']                ,
+            \ '/' : ['set hlsearch!'       , 'hlsearch'                    ]  ,
+            \ 'n' : ['set relativenumber!' , 'relativenumber'              ]  ,
+            \ 'b' : ['RainbowToggle'       , 'rainbow'                     ]  ,
+            \ 'w' : ['set wrap!'           , 'wrap'                        ]  ,
+            \ 't' : ['cd %:p:h'            , 'set current dir as work dir' ]  ,
+            \ 'l' : ['ZoomIn'              , 'Larger font'                 ]  ,
+            \ 's' : ['ZoomOut'             , 'Smaller font'                ]  ,
+            \ 'd' : ['pwd'                 , 'Current Path'                ]
             \ }
 
 let g:which_key_map.m = {

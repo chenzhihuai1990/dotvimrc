@@ -43,14 +43,13 @@ nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 
-nmap <localleader>1 <Plug>AirlineSelectTab1
-nmap <localleader>2 <Plug>AirlineSelectTab2
-nmap <localleader>3 <Plug>AirlineSelectTab3
-nmap <localleader>4 <Plug>AirlineSelectTab4
-nmap <localleader>5 <Plug>AirlineSelectTab5
-nmap <localleader>6 <Plug>AirlineSelectTab6
-nmap <localleader>7 <Plug>AirlineSelectTab7
-nmap <localleader>8 <Plug>AirlineSelectTab8
-nmap <localleader>9 <Plug>AirlineSelectTab9
-nmap <localleader>- <Plug>AirlineSelectPrevTab
-nmap <localleader>+ <Plug>AirlineSelectNextTab
+nmap <localLeader>1 <Plug>lightline#bufferline#go(1)
+nmap <localLeader>2 <Plug>lightline#bufferline#go(2)
+nmap <localLeader>3 <Plug>lightline#bufferline#go(3)
+nmap <localLeader>4 <Plug>lightline#bufferline#go(4)
+nmap <localLeader>5 <Plug>lightline#bufferline#go(5)
+nmap <localLeader>6 <Plug>lightline#bufferline#go(6)
+nmap <localLeader>7 <Plug>lightline#bufferline#go(7)
+nmap <localLeader>8 <Plug>lightline#bufferline#go(8)
+nmap <localLeader>9 <Plug>lightline#bufferline#go(9)
+nmap <localLeader>0 <Plug>lightline#bufferline#go(10)
