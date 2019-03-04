@@ -54,7 +54,9 @@ filetype indent on
 set clipboard=unnamed
 
 " Input Method:
-set iminsert=2
+if !has('nvim')
+    set iminsert=2
+endif
 set noimdisable
 
 " Set to auto read when a file is changed from the outside
@@ -149,8 +151,9 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" set title to current work directory
+set titlestring=%{getcwd()}
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable syntax highlighting
@@ -194,6 +197,8 @@ function! PatchForDarkColorscheme() abort
     hi Folded gui=underline guifg=#909aa0
     hi Visual guibg=#606060 gui=none term=none cterm=none
     hi link SpecialKey Comment
+    hi IncSearch gui=reverse guifg=darkorange
+    hi Search guifg=gray guibg=black
 endfunction
 
 set background=dark
@@ -259,6 +264,7 @@ set tabstop=4
 " Linebreak on 500 characters
 set lbr
 set tw=500
+set showbreak=>\
 
 set ai "Auto indent
 set si "Smart indent
@@ -379,3 +385,37 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
+
+hi link HighlightedyankRegion Visual 
+" Yank while keeping cursor position
+
+"nnoremap <silent> y :<C-U>call MarkAndSetOpfunc()<CR>g@
+"vnoremap <silent> y :<C-U>call MarkYankAndJump()<CR>
+"nnoremap <silent> yy y1y
+"nnoremap <silent> y2y y2y
+"nnoremap <silent> y3y y3y
+"nnoremap <silent> y4y y4y
+"nnoremap <silent> y5y y5y
+
+"function! MarkAndSetOpfunc()
+    "let g:save_cursor = getpos(".")
+    "set opfunc=YankAndJumpBack
+"endfunction
+
+"function! MarkYankAndJump()
+    "let g:save_cursor = getpos(".")
+    "call YankAndJumpBack(visualmode(), 1)
+"endfunction
+
+"function! YankAndJumpBack(type, ...)
+    "if a:0
+        "silent exe "normal! `<" . a:type . "`>y"
+    "elseif a:type == 'line'
+        "silent exe "normal! '[V']y"
+    "elseif a:type == 'block'
+        "silent exe "normal! `[\<C-V>`]y"
+    "else
+        "silent exe "normal! `[v`]y"
+    "endif
+    "call setpos('.', g:save_cursor)
+"endfunction

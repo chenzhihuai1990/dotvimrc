@@ -78,3 +78,27 @@ autocmd BufRead *.twig set syntax=html filetype=html
 autocmd BufEnter *.json set conceallevel=0
 
 autocmd VimEnter *.cpp Tagbar
+
+""""""""""""""""""""""""""""""
+" => latex
+""""""""""""""""""""""""""""""
+autocmd BufEnter *.tex set spell
+let g:tex_flavor = 'latex'
+autocmd VimEnter *.tex VimtexTocOpen
+let g:quicktex_tex = {
+    \' '   : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \'m'   : '\( <+++> \) <++>',
+    \'prf' : "\\begin{proof}\<CR><+++>\<CR>\\end{proof}",
+\}
+
+let g:quicktex_math = {
+    \' '    : "\<ESC>:call search('<+.*+>')\<CR>\"_c/+>/e\<CR>",
+    \'fr'   : '\mathcal{R} ',
+    \'eq'   : '= ',
+    \'set'  : '\{ <+++> \} <++>',
+    \'frac' : '\frac{<+++>}{<++>} <++>',
+    \'one'  : '1 ',
+    \'st'   : ': ',
+    \'in'   : '\in ',
+    \'bn'   : '\mathbb{N} ',
+\}

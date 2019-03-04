@@ -1,3 +1,41 @@
+""""""""""""""""""
+" => easyclip
+"""""""""""""""""""""
+"yank 
+if has_key(g:plugs, 'vim-yoink')
+    nmap <c-n> <plug>(YoinkPostPasteSwapBack)
+    nmap <c-p> <plug>(YoinkPostPasteSwapForward)
+
+    nmap p <plug>(YoinkPaste_p)
+    nmap P <plug>(YoinkPaste_P)
+    nmap y <plug>(YoinkYankPreserveCursorPosition)
+    xmap y <plug>(YoinkYankPreserveCursorPosition)
+    let g:yoinkIncludeDeleteOperations=1
+endif
+"Cut 
+if has_key(g:plugs, 'vim-cutlass')
+    nnoremap m d
+    xnoremap m d
+
+    nnoremap mm dd
+    nnoremap M D
+
+    nnoremap <silent> <Plug>TransposeCharacters "ux"up
+    \:call repeat#set("\<Plug>TransposeCharacters")<CR>
+    nmap gx <Plug>TransposeCharacters
+endif
+"Substitute
+if has_key(g:plugs, 'vim-subversive')
+    nmap s <plug>(SubversiveSubstitute)
+    nmap ss <plug>(SubversiveSubstituteLine)
+    nmap S <plug>(SubversiveSubstituteToEndOfLine)
+    xmap s <plug>(SubversiveSubstitute)
+    xmap p <plug>(SubversiveSubstitute)
+    xmap P <plug>(SubversiveSubstitute)
+endif
+"let g:EasyClipPreserveCursorPositionAfterYank = 1
+"let g:EasyClipUseSubstituteDefaults=1
+"
 """"""""""""""""""""""""""""""
 " => choosewin
 """"""""""""""""""""""""""""""
@@ -43,10 +81,9 @@ else
                 \ . ':\%l^<CR^>:normal\! zzzv^<CR^>'
                 \ . ':call remote_foreground('''.v:servername.''')^<CR^>^<CR^>\""'
 endif
-autocmd BufReadPre *.tex let b:vimtex_main = 'main.tex'
 let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
-" => AutoComplete 
+" => AutoComplete (YouCompleteMe & neovim-LanguageClient & deoplete)
 """"""""""""""""""""""""""""""
 "generate .ycm_extra_conf.py for youcompleteme
 "clang++ -E -x c++ - -v < nul 
@@ -98,26 +135,9 @@ else
 endif
 
 """"""""""""""""""""""""""""""
-" => bufExplorer plugin
-""""""""""""""""""""""""""""""
-let g:bufExplorerDefaultHelp=0
-let g:bufExplorerShowRelativePath=1
-let g:bufExplorerFindActive=1
-let g:bufExplorerSortBy='name'
-
-""""""""""""""""""""""""""""""
 " => MRU plugin
 """"""""""""""""""""""""""""""
 let MRU_Max_Entries = 400
-
-
-""""""""""""""""""""""""""""""
-" => YankStack
-""""""""""""""""""""""""""""""
-let g:yankstack_yank_keys = ['y', 'd']
-
-"nmap <c-p> <Plug>yankstack_substitute_older_paste
-"nmap <c-n> <Plug>yankstack_substitute_newer_paste
 
 
 """"""""""""""""""""""""""""""
@@ -130,19 +150,6 @@ let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
-
-""""""""""""""""""""""""""""""
-" => ZenCoding
-""""""""""""""""""""""""""""""
-" Enable all functions in all modes
-let g:user_zen_mode='a'
-
-
-""""""""""""""""""""""""""""""
-" => snipMate (beside <TAB> support <CTRL-j>)
-""""""""""""""""""""""""""""""
-ino <c-j> <c-r>=snipMate#TriggerSnippet()<cr>
-snor <c-j> <esc>i<right><c-r>=snipMate#TriggerSnippet()<cr>
 
 
 """"""""""""""""""""""""""""""
@@ -164,20 +171,11 @@ let g:tagbar_left=0
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => vim-multiple-cursors
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:multi_cursor_next_key="\<C-s>"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => surround.vim config
 " Annotate strings with gettext
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => lightline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Vimroom
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -232,59 +230,6 @@ nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 "let g:session_autosave='yes'
 "let g:session_autoload='yes'
 "let g:session_default_to_last='yes'
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Buftabline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"let g:buftabline_numbers=2
-"let g:buftabline_indicators=1
-"let g:buftabline_seperators=1
-"nmap <M-1> <Plug>BufTabLine.Go(1)
-"nmap <M-2> <Plug>BufTabLine.Go(2)
-"nmap <M-3> <Plug>BufTabLine.Go(3)
-"nmap <M-4> <Plug>BufTabLine.Go(4)
-"nmap <M-5> <Plug>BufTabLine.Go(5)
-"nmap <M-6> <Plug>BufTabLine.Go(6)
-"nmap <M-7> <Plug>BufTabLine.Go(7)
-"nmap <M-8> <Plug>BufTabLine.Go(8)
-"nmap <M-9> <Plug>BufTabLine.Go(9)
-"nmap <M-0> <Plug>BufTabLine.Go(10)
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => statusline
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"
-if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
-endif
-
-
-" powerline symbol:
-let g:airline_symbols.crypt = ''
-let g:airline_symbols.paste = 'P'
-"let g:airline_symbols.notexists = '∄'
-let g:airline_symbols.whitespace = '☲'
-let g:airline_symbols.spell = 'S'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.readonly = '⭤'
-let g:airline_symbols.linenr = '⭡'
-
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline#extensions#tabline#keymap_ignored_filetypes = ['vimfiler', 'nerdtree']
-let g:airline#extensions#tabline#left_alt_sep = '|'
-let g:airline#extensions#tabline#left_sep= ''
-
-"nmap <M-1> <Plug>AirlineSelectTab1
-"nmap <M-2> <Plug>AirlineSelectTab2
-"nmap <M-3> <Plug>AirlineSelectTab3
-"nmap <M-4> <Plug>AirlineSelectTab4
-"nmap <M-5> <Plug>AirlineSelectTab5
-"nmap <M-6> <Plug>AirlineSelectTab6
-"nmap <M-7> <Plug>AirlineSelectTab7
-"nmap <M-8> <Plug>AirlineSelectTab8
-"nmap <M-9> <Plug>AirlineSelectTab9
-"nmap <M--> <Plug>AirlineSelectPrevTab
-"nmap <M-+> <Plug>AirlineSelectNextTab
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ack
@@ -299,15 +244,20 @@ let g:EasyMotion_do_mapping=0
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:quickrun_no_default_key_mappings=1
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => indentLine 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:indentLine_char = ''
-"Input Mehtod
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => ywvim (Chinese Input Method) 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ywvim_ims=[
             \['wb', '五笔', 'wubi.ywvim'],
             \['py', '拼音', 'pinyin.ywvim'],
             \]
 
 let g:ywvim_py = { 'helpim':'wb', 'gb':0 }
-
 let g:ywvim_zhpunc = 1
 let g:ywvim_listmax = 10
 let g:ywvim_esc_autoff = 0
@@ -321,3 +271,29 @@ let g:ywvim_preconv = 'g2b'
 let g:ywvim_conv = ''
 let g:ywvim_lockb = 1
 let g:ywvim_theme = 'dark'
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => rainbow
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:rainbow_conf = {
+            \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+            \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+            \    'operators': '_,_',
+            \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+            \    'separately': {
+            \        '*': {},
+            \        'tex': {
+            \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+            \        },
+            \        'lisp': {
+            \            'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+            \        },
+            \        'vim': {
+            \            'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+            \        },
+            \        'html': {
+            \            'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+            \        },
+            \        'css': 0,
+            \    }
+            \}

@@ -14,14 +14,13 @@ nnoremap <c-j> <c-w><c-j>
 nnoremap <c-k> <c-w><c-k>
 nnoremap <c-l> <c-w><c-l>
 nnoremap ; :
-nnoremap : <Nop>
+vnoremap ; :
 map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
 map t <plug>(easymotion-tl)
 map T <plug>(easymotion-Tl)
 
 
-imap jk <Esc>
 vnoremap < <gv
 vnoremap > >gv
 map Y y$
@@ -53,3 +52,4 @@ nmap <localLeader>7 <Plug>lightline#bufferline#go(7)
 nmap <localLeader>8 <Plug>lightline#bufferline#go(8)
 nmap <localLeader>9 <Plug>lightline#bufferline#go(9)
 nmap <localLeader>0 <Plug>lightline#bufferline#go(10)
+

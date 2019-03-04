@@ -20,13 +20,13 @@ call plug#begin(g:vimrc.'plugged')
 " => Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'chiel92/vim-autoformat'
-Plug 'lervag/vimtex', {'for' : 'tex'}
+Plug 'lervag/vimtex', {'for' : ['tex','plaintex']}
 Plug 'scrooloose/nerdcommenter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
+"Plug 'brennier/quicktex', {'for': 'tex'}
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
 
@@ -47,45 +47,45 @@ endif
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 elseif has("win64")
-    Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
+    Plug 'snakeleon/youcompleteme-x64', {'for': ['cpp', 'py']}
 elseif has('win32') 
-    Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
+    Plug 'snakeleon/youcompleteme-x86', {'for': ['cpp', 'py', 'html']}
 else
-    Plug 'valloric/youcompleteme', {'for': 'cpp'}
+    Plug 'valloric/youcompleteme', {'for': ['cpp', 'py', 'html']}
 endif
-Plug 'raimondi/delimitmate'
+"Plug 'raimondi/delimitmate'
+Plug 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
-Plug 'gregsexton/matchtag', {'for': 'html'}
+"Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
+Plug 'luochen1990/rainbow'
+"Plug 'junegunn/rainbow_parentheses.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Integrations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'rhysd/vim-grammarous'
 Plug 'mileszs/ack.vim'
 "Plug 'w0rp/ale',{'for':'py'}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'rhysd/vim-grammarous', {'for': 'txt'}
+Plug 'rhysd/vim-grammarous'
 "Plug 'KabbAmine/zeavim.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'henrik/vim-indexed-search' "Enchance the experiment for searching
-Plug 'junegunn/vim-slash'
-
+Plug 'henrik/vim-indexed-search'
 Plug 't9md/vim-choosewin'
+Plug 'machakann/vim-highlightedyank'
 "Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-"Plug 'hecal3/vim-leader-guide'
 Plug 'liuchengxu/vim-which-key'
 
-"Plug 'vim-airline/vim-airline'
-"Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
 Plug 'chrisbra/Colorizer'
@@ -98,26 +98,28 @@ Plug 'mhinz/vim-signify'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'terryma/vim-multiple-cursors'
-Plug 'vim-scripts/SearchComplete'
+"Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
 Plug 'tpope/vim-repeat'
 "Plug 'xolox/vim-session'
-"Plug 'svermeulen/vim-easyclip'
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
+"Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'tpope/vim-speeddating'
 Plug 'danro/rename.vim', {'on': 'Rename'}
 Plug 'tmhedberg/matchit'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 "Plug 'keith/investigate.vim'
-
+Plug 'othree/html5.vim'
+"Waring: Those following plugins will change your custom for vim
+Plug 'svermeulen/vim-yoink'
+Plug 'svermeulen/vim-cutlass'
+Plug 'svermeulen/vim-subversive'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'lotabout/ywvim'
+"Plug 'lotabout/ywvim'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-sensible'
 
