@@ -39,7 +39,7 @@ Plug 'raimondi/delimitmate'
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
-Plug 'gregsexton/matchtag'
+"Plug 'gregsexton/matchtag'
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 
