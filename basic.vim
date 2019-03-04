@@ -54,8 +54,8 @@ filetype indent on
 set clipboard=unnamed
 
 " Input Method:
-set iminsert=0
-set imdisable
+set iminsert=2
+set noimdisable
 
 " Set to auto read when a file is changed from the outside
 set autoread
@@ -173,15 +173,16 @@ if has("gui_running")
     "gvim
     if has('win32') || has('win64')
         " Windows
-        set guifont=Monaco\ for\ Powerline:h11
+        set guifont=Monaco\ for\ Powerline:h10
     else
         " Non-windows platform
-        set guifont=Monaco\ for\ Powerline\ 11 
+        set guifont=Monaco\ for\ Powerline\ 10 
     endif
     set guifontwide=kaiti:h11
     set linespace=1
     set guioptions-=m "no menu
     set guioptions-=T "no toolbar
+    set guioptions-=e "No gui tabline
     "set guitablabel=%M\ %t
 endif
 set t_Co=256
@@ -292,6 +293,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 """"""""""""""""""""""""""""""
 " Always show the status line
 set laststatus=2
+set showtabline=2
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

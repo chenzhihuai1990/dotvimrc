@@ -1,11 +1,6 @@
 """"""""""""""""""""""""""""""
 " => Latex section
 """"""""""""""""""""""""""""""
-let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options
-            \ = '-reuse-instance -forward-search @tex @line @pdf'
-let g:vimtex_view_general_options_latexmk = '-reuse-instance'
-let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
 " > Python section
 """"""""""""""""""""""""""""""
@@ -81,3 +76,5 @@ autocmd BufRead *.twig set syntax=html filetype=html
 
 
 autocmd BufEnter *.json set conceallevel=0
+
+autocmd VimEnter *.cpp Tagbar

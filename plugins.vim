@@ -26,20 +26,38 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-if has('win32') || has('win64')
-    Plug 'snakeleon/youcompleteme-x64'
+
+if has("win32") || has("win64")
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
+        \ 'for' : 'cpp',
+        \ }
 else
-    Plug 'valloric/youcompleteme'
+    Plug 'autozimu/LanguageClient-neovim', {
+        \ 'branch': 'next',
+        \ 'do': 'bash install.sh',
+        \ 'for' : 'cpp',
+        \ }
+endif
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+elseif has("win64")
+    Plug 'snakeleon/youcompleteme-x64', {'for': 'cpp'}
+elseif has('win32') 
+    Plug 'snakeleon/youcompleteme-x86', {'for': 'cpp'}
+else
+    Plug 'valloric/youcompleteme', {'for': 'cpp'}
 endif
 Plug 'raimondi/delimitmate'
-"Plug 'ervandew/supertab'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'MatchTagAlways'
-"Plug 'gregsexton/matchtag'
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 
@@ -47,25 +65,32 @@ Plug 'yggdroot/indentline'
 " => Integrations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'mileszs/ack.vim'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale',{'for':'py'}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 Plug 'rhysd/vim-grammarous', {'for': 'txt'}
-Plug 'KabbAmine/zeavim.vim'
+"Plug 'KabbAmine/zeavim.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'henrik/vim-indexed-search'
+Plug 'henrik/vim-indexed-search' "Enchance the experiment for searching
+Plug 'junegunn/vim-slash'
+
 Plug 't9md/vim-choosewin'
 "Plug 'shougo/unite.vim'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'hecal3/vim-leader-guide'
+"Plug 'hecal3/vim-leader-guide'
+Plug 'liuchengxu/vim-which-key'
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mbbill/undotree', {'on': 'UndoTreeToggle'}
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
+Plug 'mengelbrecht/lightline-bufferline'
+Plug 'chrisbra/Colorizer'
+Plug 'mbbill/undotree'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'mhinz/vim-signify'
 "Plug 'airblade/vim-gitgutter'
 
@@ -91,6 +116,7 @@ Plug 'tpope/vim-surround'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'lotabout/ywvim'
 Plug 'xolox/vim-misc'
 Plug 'tpope/vim-sensible'
 
