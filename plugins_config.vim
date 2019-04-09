@@ -1,41 +1,3 @@
-""""""""""""""""""
-" => easyclip
-"""""""""""""""""""""
-"yank 
-if has_key(g:plugs, 'vim-yoink')
-    nmap <c-n> <plug>(YoinkPostPasteSwapBack)
-    nmap <c-p> <plug>(YoinkPostPasteSwapForward)
-
-    nmap p <plug>(YoinkPaste_p)
-    nmap P <plug>(YoinkPaste_P)
-    nmap y <plug>(YoinkYankPreserveCursorPosition)
-    xmap y <plug>(YoinkYankPreserveCursorPosition)
-    let g:yoinkIncludeDeleteOperations=1
-endif
-"Cut 
-if has_key(g:plugs, 'vim-cutlass')
-    nnoremap m d
-    xnoremap m d
-
-    nnoremap mm dd
-    nnoremap M D
-
-    nnoremap <silent> <Plug>TransposeCharacters "ux"up
-    \:call repeat#set("\<Plug>TransposeCharacters")<CR>
-    nmap gx <Plug>TransposeCharacters
-endif
-"Substitute
-if has_key(g:plugs, 'vim-subversive')
-    nmap s <plug>(SubversiveSubstitute)
-    nmap ss <plug>(SubversiveSubstituteLine)
-    nmap S <plug>(SubversiveSubstituteToEndOfLine)
-    xmap s <plug>(SubversiveSubstitute)
-    xmap p <plug>(SubversiveSubstitute)
-    xmap P <plug>(SubversiveSubstitute)
-endif
-"let g:EasyClipPreserveCursorPositionAfterYank = 1
-"let g:EasyClipUseSubstituteDefaults=1
-"
 """"""""""""""""""""""""""""""
 " => choosewin
 """"""""""""""""""""""""""""""
@@ -85,41 +47,15 @@ let g:tex_conceal = ""
 """"""""""""""""""""""""""""""
 " => AutoComplete (YouCompleteMe & neovim-LanguageClient & deoplete)
 """"""""""""""""""""""""""""""
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+"Use <TAB> to select the popup menu:
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 "generate .ycm_extra_conf.py for youcompleteme
 "clang++ -E -x c++ - -v < nul 
-let g:LanguageClient_serverCommands = {
-  \ 'cpp': ['clangd'],
-  \ }
-nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-
-let g:ycm_key_detailed_diagnostics = '<leader>dd'
-nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
-let g:ycm_keep_logfiles = 1
-let g:ycm_add_preview_to_completeopt = 1
-let g:ycm_autoclose_preview_window_after_completion = 0
-let g:ycm_always_populate_location_list = 1
-let g:ycm_complete_in_comments=0
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_min_num_of_chars_for_completion=2
-let g:ycm_error_symbol = '✖'
-let g:ycm_warning_symbol = 'w'
-let g:ycm_confirm_extra_conf = 0
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif
-let g:ale_sign_error = '*'
-let g:ale_sign_warning = '·'
-let g:ale_sign_info = '~'
-let g:ale_sign_style_error = '>'
-let g:ale_sign_style_warning = '-'
-let g:ale_completion_enabled=0
-
-
-if has('nvim')
-    let g:deoplete#enable_at_startup = 1
-else
-    let g:LanguageClient_diagnosticsEnable = 0
-
+"
+if !exists("g:vim_completor") || g:vim_completor=="ycm"
+"YouCompleteMe for vim8
     let g:ycm_key_detailed_diagnostics = '<leader>dd'
     nmap <M-d> :YcmCompleter GoToDefinitionElseDeclaration <C-R>=expand("<cword>")<CR><CR>
     let g:ycm_keep_logfiles = 1
@@ -131,27 +67,47 @@ else
     let g:ycm_min_num_of_chars_for_completion=2
     let g:ycm_error_symbol = '✖'
     let g:ycm_warning_symbol = 'w'
-    autocmd InsertLeave * if pumvisible() == 0|pclose|endif
+    let g:ycm_confirm_extra_conf = 0
+"CoC for vim8
+elseif g:vim_completor=="coc"
+    function! s:show_documentation()
+        if &filetype == 'vim'
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+    autocmd CursorHold * silent call CocActionAsync('highlight')
+    " Use `[c` and `]c` for navigate diagnostics
+    nmap <silent> [c <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]c <Plug>(coc-diagnostic-next)
+
+    " Remap keys for gotos
+    nmap <silent> gd <Plug>(coc-definition)
+    nmap <silent> gy <Plug>(coc-type-definition)
+    nmap <silent> gi <Plug>(coc-implementation)
+    nmap <silent> gr <Plug>(coc-references)
+
+    " Use tab for trigger completion with characters ahead and navigate.
+    " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+    inoremap <silent><expr> <TAB>
+          \ pumvisible() ? "\<C-n>" :
+          \ <SID>check_back_space() ? "\<TAB>" :
+          \ coc#refresh()
+    inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+    " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
+    " Coc only does snippet and additional edit on confirm.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Use K for show documentation in preview window
+    function! s:show_documentation()
+        if &filetype == 'vim'
+            execute 'h '.expand('<cword>')
+        else
+            call CocAction('doHover')
+        endif
+    endfunction
+    nnoremap <silent> K :call <SID>show_documentation()<CR>
 endif
-
-""""""""""""""""""""""""""""""
-" => MRU plugin
-""""""""""""""""""""""""""""""
-let MRU_Max_Entries = 400
-
-
-""""""""""""""""""""""""""""""
-" => CTRL-P
-""""""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
-
-let g:ctrlp_map = '<localleader><localleader>p'
-let g:ctrlp_max_height = 20
-let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 0
-
-
 """"""""""""""""""""""""""""""
 " => Vim grep
 """"""""""""""""""""""""""""""
@@ -166,7 +122,6 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
 let g:NERDTreeWinSize=35
-
 let g:tagbar_left=0 
 
 
@@ -183,34 +138,6 @@ let g:goyo_width=100
 let g:goyo_margin_top = 2
 let g:goyo_margin_bottom = 2
 nnoremap <silent> <leader>z :Goyo<cr>
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Vim-go
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:go_fmt_command = "goimports"
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Syntastic (syntax checker)
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Python
-let g:syntastic_python_checkers=['pyflakes']
-
-" Javascript
-let g:syntastic_javascript_checkers = ['jshint']
-
-" Go
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
-
-" Custom CoffeeScript SyntasticCheck
-func! SyntasticCheckCoffeescript()
-    let l:filename = substitute(expand("%:p"), '\(\w\+\)\.coffee', '.coffee.\1.js', '')
-    execute "tabedit " . l:filename
-    execute "SyntasticCheck"
-    execute "Errors"
-endfunc
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -275,7 +202,7 @@ let g:ywvim_theme = 'dark'
 " => rainbow
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:rainbow_conf = {
-            \    'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+            \    'guifgs': ['#83a598', 'darkorange3', 'seagreen3', 'firebrick'],
             \    'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
             \    'operators': '_,_',
             \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
@@ -296,3 +223,18 @@ let g:rainbow_conf = {
             \        'css': 0,
             \    }
             \}
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => local vimrc 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:localvimrc_name = ["_lvimrc"]
+let g:localvimrc_ask = 0
+let g:localvimrc_debug=1
+let g:localvimrc_sandbox=0
+"""""""""""""""""""""""""""""""""""""
+" => Fuzzy finder
+"""""""""""""""""""""""""""""""""""""
+let g:Lf_ShortcutF = ''
+let g:Lf_StlColorscheme = 'powerline'
+let g:Lf_ReverseOrder=1
+let g:Lf_StlSeparator = { 'left': '', 'right': '' }

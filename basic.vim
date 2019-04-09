@@ -99,8 +99,9 @@ if has("win16") || has("win32")
 else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
-
-"Always show current position
+" Always show signcolumns
+set signcolumn=yes
+" Always show current position
 set ruler
 
 " Height of the command bar

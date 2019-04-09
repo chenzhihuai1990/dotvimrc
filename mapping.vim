@@ -1,12 +1,8 @@
 nnoremap <localleader> ,
 
-nmap <leader>w ;ChooseWin<cr>
-"nmap <leader>w <plug>(easymotion-w)
-"nmap <leader>g ;ChooseWin<Cr>
-"nmap <leader>s ;ChooseWinSwap<Cr>
-nmap <leader>r ;CtrlPBufTag<Cr>
+nnoremap <leader>w :ChooseWin<cr>
+nnoremap <leader>r :CtrlPBufTag<Cr>
 "nmap <leader>o ;OverCommandLine<Cr>
-nmap <leader>a ;Ack 
 
 "change default behavior
 nnoremap <c-h> <c-w><c-h>

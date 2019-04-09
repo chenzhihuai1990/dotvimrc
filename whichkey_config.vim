@@ -1,8 +1,8 @@
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 call which_key#register('<Space>', "g:which_key_map")
-nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map={}
 
@@ -29,9 +29,6 @@ let g:which_key_map.d = {
             \ 't' : ['YcmCompleter GetType'            , "getType"            ]  ,
             \ 'm' : ['YcmCompleter GetTypeImprecise'   , "getTypeImprecise"   ]  ,
             \ }
-let g:which_key_map.h = {
-            \'name': '+GitGutter',
-            \}
 let g:which_key_map.g = {
             \'name' : '+Jump'                                                ,
             \ 'w' : ['call feedkeys("\<Plug>(easymotion-w)")'              , 'jump to word'         ]  ,
@@ -54,26 +51,14 @@ let g:which_key_map.k = {
             \ }
 let g:which_key_map.o = {
             \ 'name' : '+Open'           ,
-            \ 'f'    : ['CtrlP'          , 'File'     ]  ,
-            \ 'r'    : ['CtrlPMRUFiles'  , 'MRU File' ]  ,
-            \ 'b'    : ['CtrlPBuffer'    , 'Buffers'  ]  ,
-            \ 'm'    : ['CtrlPMixed'     , 'Mixed'    ]  ,
+            \ 'f'    : ['Leaderf file'   , 'File'     ]  ,
+            \ 'r'    : ['Leaderf mru'    , 'MRU File' ]  ,
+            \ 'b'    : ['Leaderf buffer' , 'Buffers'  ]  ,
             \ 'n'    : ['NERDTreeToggle' , 'NERDTree' ]  ,
             \ 'u'    : ['UndotreeToggle' , 'UndoTree' ]  ,
             \ 't'    : ['TagbarToggle'   , 'Tagbar'   ]
             \ }
-let g:which_key_map.f = {
-            \ 'name' : '+Config'                           ,
-            \ 'c' : ['e ~/dotvimrc/plugins_config.vim'  , 'configuration'  ]  ,
-            \ 'l' : ['e ~/dotvimrc/lightline.vim'       , 'lightline'      ]  ,
-            \ 'p' : ['e ~/dotvimrc/plugins.vim'         , 'plugins'        ]  ,
-            \ 'b' : ['e ~/dotvimrc/basic.vim'           , 'basic'          ]  ,
-            \ 'f' : ['e ~/dotvimrc/filetypes.vim'       , 'filetype'       ]  ,
-            \ 'w' : ['e ~/dotvimrc/whichkey_config.vim' , 'which keyguide' ]  ,
-            \ 'm' : ['e ~/dotvimrc/mapping.vim'         , 'mapping'        ]  ,
-            \ 'v' : ['call EditVimrc()'                 , 'edit vimrc'     ]  ,
-            \ 's' : ['e ~/dotvimrc/start.vim'           , 'edit start.vim' ]
-            \ }
+let g:which_key_map.f = ['Leaderf file ~/dotvimrc', 'Dotvimrc']
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
             \ '/' : ['set hlsearch!'       , 'hlsearch'                    ]  ,
@@ -95,43 +80,3 @@ let g:which_key_map.m = {
             \ 'o'    : ['only'      , "close others"     ]  ,
             \ 'm'    : ['simalt ~x' , "maximize"         ]
             \ }
-
-function! s:appendSessionsToOpen()
-    let sessions = split(globpath('~\vimfiles\sessions', '*.vim'), '\n')
-    let index=0
-    for se in sessions
-        let fn = fnamemodify(se,":t:r")
-        let g:which_key_map.o[index % 10] = ["OpenSession ".fn, fn]
-        let index += 1
-        if index > 9
-            break
-        endif
-    endfor
-endfunction
-call s:appendSessionsToOpen()
-
-function! AppendBuffersToClose()
-    let bufnums = buftabline#user_buffers()
-    let index = 0
-    while index < 10
-        if has_key(g:which_key_map.k, index)
-            unlet g:which_key_map.k[index]
-        endif
-        let index+=1
-    endwhile
-    let index=1
-    for bufnum in bufnums
-        let g:which_key_map.k[index % 10] = ["bd ".bufnum, bufname(bufnum)]
-        let index += 1
-        if index > 10
-            break
-        endif
-    endfor
-endfunction
-function! EditVimrc()
-    if has('nvim')
-        exec 'e '.stdpath('config').'/init.vim'
-    else
-        exec 'e ~/_vimrc'
-    endif
-endfunction

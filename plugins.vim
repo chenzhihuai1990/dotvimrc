@@ -22,6 +22,8 @@ call plug#begin(g:vimrc.'plugged')
 Plug 'chiel92/vim-autoformat'
 Plug 'lervag/vimtex', {'for' : ['tex','plaintex']}
 Plug 'scrooloose/nerdcommenter'
+Plug 'AndrewRadev/vim-eco', {'for': 'eco'}
+Plug 'kchmck/vim-coffee-script', {'for': 'eco'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
@@ -29,69 +31,53 @@ Plug 'scrooloose/nerdcommenter'
 "Plug 'brennier/quicktex', {'for': 'tex'}
 Plug 'mattn/emmet-vim', {'for': 'html'}
 Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
+Plug 'alvan/vim-closetag', {'for': 'html'}
 
-if has("win32") || has("win64")
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'powershell -executionpolicy bypass -File install.ps1',
-        \ 'for' : 'cpp',
-        \ }
-else
-    Plug 'autozimu/LanguageClient-neovim', {
-        \ 'branch': 'next',
-        \ 'do': 'bash install.sh',
-        \ 'for' : 'cpp',
-        \ }
+if !exists("g:vim_completor") || g:vim_completor=="ycm"
+"YouCompleteMe
+    if has("win64")
+        Plug 'snakeleon/youcompleteme-x64', {'for': ['cpp', 'python', 'tex']}
+    elseif has('win32') 
+        Plug 'snakeleon/youcompleteme-x86', {'for': ['cpp', 'python', 'tex']}
+    else
+        Plug 'valloric/youcompleteme', {'for': ['cpp', 'python', 'tex'], 'do': './install.py --clang-completer'}
+    endif
+    Plug 'jiangmiao/auto-pairs'
+    "Plug 'raimondi/delimitmate'
+elseif g:vim_completor=="coc"
+"CoC for vim8
+    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 endif
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-elseif has("win64")
-    Plug 'snakeleon/youcompleteme-x64', {'for': ['cpp', 'py']}
-elseif has('win32') 
-    Plug 'snakeleon/youcompleteme-x86', {'for': ['cpp', 'py', 'html']}
-else
-    Plug 'valloric/youcompleteme', {'for': ['cpp', 'py', 'html']}
-endif
-"Plug 'raimondi/delimitmate'
-Plug 'jiangmiao/auto-pairs'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'gregsexton/matchtag', {'for': 'html'}
+Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
-Plug 'luochen1990/rainbow'
-"Plug 'junegunn/rainbow_parentheses.vim'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Integrations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'rhysd/vim-grammarous'
-Plug 'mileszs/ack.vim'
-"Plug 'w0rp/ale',{'for':'py'}
+Plug 'rhysd/vim-grammarous', {'for': 'plain'}
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
-Plug 'rhysd/vim-grammarous'
-"Plug 'KabbAmine/zeavim.vim'
+" debug plugin for python
+Plug 'joonty/vdebug'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'henrik/vim-indexed-search'
-Plug 't9md/vim-choosewin'
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'chrisbra/Colorizer', {'for': 'css'}
+Plug 'mhinz/vim-signify'
 Plug 'machakann/vim-highlightedyank'
-"Plug 'shougo/unite.vim'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 't9md/vim-choosewin'
 Plug 'liuchengxu/vim-which-key'
-
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'chrisbra/Colorizer'
-Plug 'mbbill/undotree'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'tacahiroy/ctrlp-funky'
-Plug 'mhinz/vim-signify'
+Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 "Plug 'airblade/vim-gitgutter'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -111,15 +97,12 @@ Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 "Plug 'keith/investigate.vim'
 Plug 'othree/html5.vim'
-"Waring: Those following plugins will change your custom for vim
-Plug 'svermeulen/vim-yoink'
-Plug 'svermeulen/vim-cutlass'
-Plug 'svermeulen/vim-subversive'
+" Evaluate text as a math expression and replace it with the result.
+Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'lotabout/ywvim'
-Plug 'xolox/vim-misc'
-Plug 'tpope/vim-sensible'
+Plug 'embear/vim-localvimrc'
 
 call plug#end()
