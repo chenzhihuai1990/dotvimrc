@@ -4,7 +4,9 @@ call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 
-let g:which_key_map={}
+if !has('g:which_key_map')
+    let g:which_key_map={}
+endif
 
 let g:which_key_map[' '] = ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Ace-jump']
 let g:which_key_map['<tab>'] = ['e #<cr>', 'last buffer']
@@ -51,14 +53,14 @@ let g:which_key_map.k = {
             \ }
 let g:which_key_map.o = {
             \ 'name' : '+Open'           ,
-            \ 'f'    : ['Leaderf file'   , 'File'     ]  ,
-            \ 'r'    : ['Leaderf mru'    , 'MRU File' ]  ,
-            \ 'b'    : ['Leaderf buffer' , 'Buffers'  ]  ,
+            \ 'f'    : [':Leaderf file'   , 'File'     ]  ,
+            \ 'r'    : [':Leaderf mru'    , 'MRU File' ]  ,
+            \ 'b'    : [':Leaderf buffer' , 'Buffers'  ]  ,
             \ 'n'    : ['NERDTreeToggle' , 'NERDTree' ]  ,
             \ 'u'    : ['UndotreeToggle' , 'UndoTree' ]  ,
             \ 't'    : ['TagbarToggle'   , 'Tagbar'   ]
             \ }
-let g:which_key_map.f = ['Leaderf file ~/dotvimrc', 'Dotvimrc']
+let g:which_key_map.f = [':Leaderf file ~/dotvimrc', 'Dotvimrc']
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
             \ '/' : ['set hlsearch!'       , 'hlsearch'                    ]  ,
@@ -80,3 +82,6 @@ let g:which_key_map.m = {
             \ 'o'    : ['only'      , "close others"     ]  ,
             \ 'm'    : ['simalt ~x' , "maximize"         ]
             \ }
+autocmd! FileType which_key
+autocmd  FileType which_key set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
