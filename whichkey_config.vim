@@ -53,14 +53,14 @@ let g:which_key_map.k = {
             \ }
 let g:which_key_map.o = {
             \ 'name' : '+Open'           ,
-            \ 'f'    : ['Leaderf file'   , 'File'     ]  ,
-            \ 'r'    : ['Leaderf mru'    , 'MRU File' ]  ,
-            \ 'b'    : ['Leaderf buffer' , 'Buffers'  ]  ,
+            \ 'f'    : [':Leaderf file'   , 'File'     ]  ,
+            \ 'r'    : [':Leaderf mru'    , 'MRU File' ]  ,
+            \ 'b'    : [':Leaderf buffer' , 'Buffers'  ]  ,
             \ 'n'    : ['NERDTreeToggle' , 'NERDTree' ]  ,
             \ 'u'    : ['UndotreeToggle' , 'UndoTree' ]  ,
             \ 't'    : ['TagbarToggle'   , 'Tagbar'   ]
             \ }
-let g:which_key_map.f = ['Leaderf file ~/dotvimrc', 'Dotvimrc']
+let g:which_key_map.f = [':Leaderf file ~/dotvimrc', 'Dotvimrc']
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
             \ '/' : ['set hlsearch!'       , 'hlsearch'                    ]  ,
