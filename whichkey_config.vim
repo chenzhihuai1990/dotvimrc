@@ -60,7 +60,7 @@ let g:which_key_map.o = {
             \ 'u'    : ['UndotreeToggle' , 'UndoTree' ]  ,
             \ 't'    : ['TagbarToggle'   , 'Tagbar'   ]
             \ }
-let g:which_key_map.f = [':Leaderf file ~/dotvimrc', 'Dotvimrc']
+let g:which_key_map.f = ['Leaderf file ~/dotvimrc', 'Dotvimrc']
 let g:which_key_map.t = {
             \ 'name' : '+Toggle'               ,
             \ '/' : ['set hlsearch!'       , 'hlsearch'                    ]  ,
