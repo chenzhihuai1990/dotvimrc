@@ -3,6 +3,9 @@
 " Author: shinchu <shinchu@outlook.com>
 " Source: https://github.com/shinchu/lightline-gruvbox
 
+let g:gruvbox_contrast_dark = 'hard'
+let g:lightline_gruvbox_style = 'hard_left'
+
 let s:is_dark=(&background == 'dark')
 
 if !exists('g:gruvbox_contrast_dark')
