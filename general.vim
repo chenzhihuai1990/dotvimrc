@@ -175,7 +175,7 @@ endif
 
 if has("gui_running")
     "gvim
-    if has('win32') || has('win64')
+    if has('win32')
         " Windows
         set guifont=Monaco\ for\ Powerline:h10
     else
@@ -265,7 +265,7 @@ set tabstop=4
 " Linebreak on 500 characters
 set lbr
 set tw=500
-set showbreak=>\
+set showbreak=›\
 
 set ai "Auto indent
 set si "Smart indent
@@ -290,10 +290,6 @@ try
   set stal=2
 catch
 endtry
-
-" Return to last edit position when opening files (You want this!)
-au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-
 
 """"""""""""""""""""""""""""""
 " => Status line
@@ -335,35 +331,6 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Helper functions
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Returns true if paste mode is enabled
-function! HasPaste()
-    if &paste
-        return 'PASTE MODE  '
-    endif
-    return ''
-endfunction
-
-" Don't close window, when deleting a buffer
-command! Bclose call <SID>BufcloseCloseIt()
-function! <SID>BufcloseCloseIt()
-   let l:currentBufNum = bufnr("%")
-   let l:alternateBufNum = bufnr("#")
-
-   if buflisted(l:alternateBufNum)
-     buffer #
-   else
-     bnext
-   endif
-
-   if bufnr("%") == l:currentBufNum
-     new
-   endif
-
-   if buflisted(l:currentBufNum)
-     execute("bdelete! ".l:currentBufNum)
-   endif
-endfunction
-
 function! CmdLine(str)
     exe "menu Foo.Bar :" . a:str
     emenu Foo.Bar
@@ -390,33 +357,3 @@ endfunction
 hi link HighlightedyankRegion Visual 
 " Yank while keeping cursor position
 
-"nnoremap <silent> y :<C-U>call MarkAndSetOpfunc()<CR>g@
-"vnoremap <silent> y :<C-U>call MarkYankAndJump()<CR>
-"nnoremap <silent> yy y1y
-"nnoremap <silent> y2y y2y
-"nnoremap <silent> y3y y3y
-"nnoremap <silent> y4y y4y
-"nnoremap <silent> y5y y5y
-
-"function! MarkAndSetOpfunc()
-    "let g:save_cursor = getpos(".")
-    "set opfunc=YankAndJumpBack
-"endfunction
-
-"function! MarkYankAndJump()
-    "let g:save_cursor = getpos(".")
-    "call YankAndJumpBack(visualmode(), 1)
-"endfunction
-
-"function! YankAndJumpBack(type, ...)
-    "if a:0
-        "silent exe "normal! `<" . a:type . "`>y"
-    "elseif a:type == 'line'
-        "silent exe "normal! '[V']y"
-    "elseif a:type == 'block'
-        "silent exe "normal! `[\<C-V>`]y"
-    "else
-        "silent exe "normal! `[v`]y"
-    "endif
-    "call setpos('.', g:save_cursor)
-"endfunction

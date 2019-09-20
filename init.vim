@@ -1,8 +1,7 @@
 source ~/dotvimrc/plugins.vim
-source ~/dotvimrc/basic.vim
-source ~/dotvimrc/mapping.vim
-source ~/dotvimrc/plugins_config.vim
-source ~/dotvimrc/lightline.vim
-source ~/dotvimrc/lightline-gruvbox.vim
-source ~/dotvimrc/whichkey_config.vim
-source ~/dotvimrc/filetypes.vim
+source ~/dotvimrc/general.vim
+source ~/dotvimrc/keybindings.vim
+for f in split(glob(fnamemodify(expand('<sfile>'), ':h').'\plugins\*.vim'))
+	exe 'source' f
+endfor
+

@@ -1,7 +1,5 @@
 nnoremap <localleader> ,
 
-nnoremap <leader>w :ChooseWin<cr>
-nnoremap <leader>r :CtrlPBufTag<Cr>
 "nmap <leader>o ;OverCommandLine<Cr>
 
 "change default behavior
@@ -15,7 +13,12 @@ map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
 map t <plug>(easymotion-tl)
 map T <plug>(easymotion-Tl)
-
+nnoremap H ^
+nnoremap L $
+cnoremap <c-f> <right>
+cnoremap <c-b> <left>
+cnoremap <c-a> <home>
+cnoremap <c-e> <end>
 
 vnoremap < <gv
 vnoremap > >gv

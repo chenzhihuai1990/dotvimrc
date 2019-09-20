@@ -19,7 +19,6 @@ call plug#begin(g:vimrc.'plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Language
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'chiel92/vim-autoformat'
 Plug 'lervag/vimtex', {'for' : ['tex','plaintex']}
 Plug 'scrooloose/nerdcommenter'
 Plug 'AndrewRadev/vim-eco', {'for': 'eco'}
@@ -29,12 +28,11 @@ Plug 'kchmck/vim-coffee-script', {'for': 'eco'}
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'brennier/quicktex', {'for': 'tex'}
-Plug 'mattn/emmet-vim', {'for': 'html'}
-Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-Plug 'alvan/vim-closetag', {'for': 'html'}
 
-if !exists("g:vim_completor") || g:vim_completor=="ycm"
+if !exists('g:completor') || g:completor=='ycm'
 "YouCompleteMe
+    Plug 'mattn/emmet-vim', {'for': 'html'}
+    Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
     if has("win64")
         Plug 'snakeleon/youcompleteme-x64', {'for': ['cpp', 'python', 'tex']}
     elseif has('win32') 
@@ -44,21 +42,20 @@ if !exists("g:vim_completor") || g:vim_completor=="ycm"
     endif
     Plug 'jiangmiao/auto-pairs'
     "Plug 'raimondi/delimitmate'
-elseif g:vim_completor=="coc"
+elseif g:completor=='coc.nvim'
 "CoC for vim8
     Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'gregsexton/matchtag', {'for': 'html'}
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Integrations
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'rhysd/vim-grammarous', {'for': 'plain'}
+Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 " debug plugin for python
@@ -67,36 +64,37 @@ Plug 'joonty/vdebug'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
-Plug 'henrik/vim-indexed-search'
-Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
-Plug 'chrisbra/Colorizer', {'for': 'css'}
-Plug 'mhinz/vim-signify'
-Plug 'machakann/vim-highlightedyank'
-Plug 't9md/vim-choosewin'
+Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'itchyny/lightline.vim'
 Plug 'mengelbrecht/lightline-bufferline'
-Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
+Plug 'machakann/vim-highlightedyank'
+Plug 'henrik/vim-indexed-search'
 "Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
+Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
+Plug 'mhinz/vim-signify'
+Plug 't9md/vim-choosewin'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'inkarkat/vim-visualrepeat'
 "Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
+"Plug 'godlygeek/tabular'
 Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
-Plug 'tpope/vim-repeat'
+Plug 'Yilin-Yang/vim-markbar'
+Plug 'junegunn/vim-peekaboo'
 "Plug 'xolox/vim-session'
 "Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'tpope/vim-speeddating'
 Plug 'danro/rename.vim', {'on': 'Rename'}
-Plug 'tmhedberg/matchit'
-Plug 'easymotion/vim-easymotion'
-Plug 'tpope/vim-surround'
 "Plug 'keith/investigate.vim'
-Plug 'othree/html5.vim'
 " Evaluate text as a math expression and replace it with the result.
 Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -104,5 +102,6 @@ Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'lotabout/ywvim'
 Plug 'embear/vim-localvimrc'
+Plug 'farmergreg/vim-lastplace'
 
 call plug#end()
