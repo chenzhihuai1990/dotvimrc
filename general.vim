@@ -78,6 +78,11 @@ set nocompatible
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => VIM user interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" show guititle
+set title
+" set title to current work directory
+set titlestring=%{getcwd()}
+
 " Set 7 lines to the cursor - when moving vertically using j/k
 set so=7
 " Show line number
@@ -152,8 +157,6 @@ endif
 " Add a bit extra margin to the left
 set foldcolumn=1
 
-" set title to current work directory
-set titlestring=%{getcwd()}
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

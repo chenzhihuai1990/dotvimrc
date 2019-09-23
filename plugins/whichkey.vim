@@ -1,6 +1,6 @@
 let g:which_key_sort_horizontal = 1
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+"nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
@@ -12,11 +12,21 @@ endif
 
 let g:which_key_map[' '] = ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Ace-jump']
 let g:which_key_map['<tab>'] = ['e #<cr>', 'last buffer']
-vmap <cr> <Plug>(EasyAlign)
-vmap <c-a> :EasyAlign /
 nnoremap <leader><tab> :e #<cr>
 
 " ==> Level 1
+call extend(g:which_key_map, {
+            \ '1': ['<Plug>lightline#bufferline#go(1)'  , 'goto-tab-1'],
+            \ '2': ['<Plug>lightline#bufferline#go(2)'  , 'goto-tab-2'],
+            \ '3': ['<Plug>lightline#bufferline#go(3)'  , 'goto-tab-3'],
+            \ '4': ['<Plug>lightline#bufferline#go(4)'  , 'goto-tab-4'],
+            \ '5': ['<Plug>lightline#bufferline#go(5)'  , 'goto-tab-5'],
+            \ '6': ['<Plug>lightline#bufferline#go(6)'  , 'goto-tab-6'],
+            \ '7': ['<Plug>lightline#bufferline#go(7)'  , 'goto-tab-7'],
+            \ '8': ['<Plug>lightline#bufferline#go(8)'  , 'goto-tab-8'],
+            \ '9': ['<Plug>lightline#bufferline#go(9)'  , 'goto-tab-9'],
+            \ '0': ['<Plug>lightline#bufferline#go(10)' , 'goto-tab-10']
+            \})
 let g:which_key_map.g = [':Leaderf rg'     , 'global search']
 let g:which_key_map.r = [':LeaderfFunction', 'functions']
 let g:which_key_map.w = ['call feedkeys("\<Plug>(easymotion-wl)")', 'word-in-line']

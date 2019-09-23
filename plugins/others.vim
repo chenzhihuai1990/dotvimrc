@@ -16,6 +16,8 @@ nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
 
 " => EasyMotion
 let g:EasyMotion_do_mapping=0
+let g:EasyMotion_move_highlight=0
+hi EasyMotionMoveHL cterm=underline ctermfg=Yellow gui=underline guifg=yellow
 
 " => indentLine 
 let g:indentLine_char = ''
