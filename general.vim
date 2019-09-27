@@ -51,7 +51,7 @@ set history=500
 filetype plugin on
 filetype indent on
 
-set clipboard=unnamed
+"set clipboard=unnamed
 
 " Input Method:
 if !has('nvim')
@@ -105,7 +105,7 @@ else
     set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 " Always show signcolumns
-set signcolumn=yes
+set signcolumn=auto
 " Always show current position
 set ruler
 
@@ -155,7 +155,7 @@ endif
 
 
 " Add a bit extra margin to the left
-set foldcolumn=1
+"set foldcolumn=1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
@@ -269,6 +269,7 @@ set tabstop=4
 set lbr
 set tw=500
 set showbreak=›\
+set breakindent
 
 set ai "Auto indent
 set si "Smart indent
@@ -360,3 +361,4 @@ endfunction
 hi link HighlightedyankRegion Visual 
 " Yank while keeping cursor position
 
+cd ~

@@ -9,10 +9,10 @@ let g:NERDTreeWinSize  = 35
 let g:tagbar_left      = 0
 
 " => Smooth scroll
-nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 0, 2)<CR>
-nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 0, 2)<CR>
-nnoremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 0, 2)<CR>
-nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 0, 2)<CR>
+nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 8, 2)<CR>
+nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 8, 2)<CR>
+nnoremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 8, 2)<CR>
+nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 8, 2)<CR>
 
 " => EasyMotion
 let g:EasyMotion_do_mapping=0
@@ -21,6 +21,7 @@ hi EasyMotionMoveHL cterm=underline ctermfg=Yellow gui=underline guifg=yellow
 
 " => indentLine 
 let g:indentLine_char = ''
+set fcs=vert:
 
 " => ywvim (Chinese Input Method) 
 let g:ywvim_ims=[
@@ -54,6 +55,10 @@ let g:Lf_ShortcutF      = ''
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_ReverseOrder   = 1
 let g:Lf_StlSeparator   = { 'left': '', 'right': '' }
+let g:Lf_WildIgnore = {
+            \ 'dir': ['.svn','.git','.hg'],
+            \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
+            \}
 
 
 " => Matchup
@@ -62,3 +67,6 @@ let g:matchup_override_vimtex=1
 " => Peekaboo_window
 let g:peekaboo_window = 'vertical botright 40new'
 let g:peekaboo_delay  = 1000
+" => delimitmate
+let g:delimitMate_expand_cr = 1
+let g:delimitMate_expand_space = 1

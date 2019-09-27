@@ -1,3 +1,7 @@
+"function! StatuslineScrollBar()
+    "return noscrollbar#statusline(20,'■','◫',['◧'],['◨'])
+"endfunction
+"Remove lineinfo and percent
 let g:lightline = {
             \ 'colorscheme': 'gruvbox',
             \ 'component': {
@@ -6,7 +10,7 @@ let g:lightline = {
             \ },
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ], [ 'cocstatus', 'fugitive', 'filename' , 'readonly'], ['tagbar'] ],
-            \   'right': [ [ 'spell', 'syntastic', 'lineinfo' ], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
+            \   'right': [ [ 'spell', 'syntastic', 'lineinfo'], ['percent'], [ 'fileformat', 'fileencoding', 'filetype' ] ]
             \ },
             \ 'component_function': {
             \   'fugitive': 'LightlineFugitive',
@@ -16,7 +20,7 @@ let g:lightline = {
             \   'filetype': 'LightlineFiletype',
             \   'fileencoding': 'LightlineFileencoding',
             \   'mode': 'LightlineMode',
-            \   'cocstatus': 'coc#status'
+            \   'cocstatus': 'coc#status',
             \ },
             \ 'component_expand': {
             \   'syntastic': 'SyntasticStatuslineFlag',
@@ -24,7 +28,6 @@ let g:lightline = {
             \ 'component_type': {
             \   'syntastic': 'error',
             \ },
-            \ 'subseparator': { 'left': '|', 'right': '|' }
             \ }
 
 let g:lightline.tabline          = {'left': [['buffers']], 'right': [['close']]}

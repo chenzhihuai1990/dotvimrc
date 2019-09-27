@@ -29,6 +29,7 @@ Plug 'kchmck/vim-coffee-script', {'for': 'eco'}
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'brennier/quicktex', {'for': 'tex'}
 
+Plug 'raimondi/delimitmate'
 if !exists('g:completor') || g:completor=='ycm'
 "YouCompleteMe
     Plug 'mattn/emmet-vim', {'for': 'html'}
@@ -40,8 +41,6 @@ if !exists('g:completor') || g:completor=='ycm'
     else
         Plug 'valloric/youcompleteme', {'for': ['cpp', 'python', 'tex'], 'do': './install.py --clang-completer'}
     endif
-    Plug 'jiangmiao/auto-pairs'
-    "Plug 'raimondi/delimitmate'
 elseif g:completor=='coc.nvim'
 "CoC for vim8
     Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
@@ -59,7 +58,7 @@ Plug 'rhysd/vim-grammarous'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'
 " debug plugin for python
-Plug 'joonty/vdebug'
+"Plug 'joonty/vdebug'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface

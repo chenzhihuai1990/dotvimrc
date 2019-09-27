@@ -1,6 +1,6 @@
 let g:which_key_sort_horizontal = 1
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
-"nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
@@ -15,18 +15,29 @@ let g:which_key_map['<tab>'] = ['e #<cr>', 'last buffer']
 nnoremap <leader><tab> :e #<cr>
 
 " ==> Level 1
-call extend(g:which_key_map, {
-            \ '1': ['<Plug>lightline#bufferline#go(1)'  , 'goto-tab-1'],
-            \ '2': ['<Plug>lightline#bufferline#go(2)'  , 'goto-tab-2'],
-            \ '3': ['<Plug>lightline#bufferline#go(3)'  , 'goto-tab-3'],
-            \ '4': ['<Plug>lightline#bufferline#go(4)'  , 'goto-tab-4'],
-            \ '5': ['<Plug>lightline#bufferline#go(5)'  , 'goto-tab-5'],
-            \ '6': ['<Plug>lightline#bufferline#go(6)'  , 'goto-tab-6'],
-            \ '7': ['<Plug>lightline#bufferline#go(7)'  , 'goto-tab-7'],
-            \ '8': ['<Plug>lightline#bufferline#go(8)'  , 'goto-tab-8'],
-            \ '9': ['<Plug>lightline#bufferline#go(9)'  , 'goto-tab-9'],
-            \ '0': ['<Plug>lightline#bufferline#go(10)' , 'goto-tab-10']
-            \})
+
+nmap <localleader>1 <Plug>lightline#bufferline#go(1)
+nmap <localleader>2 <Plug>lightline#bufferline#go(2)
+nmap <localleader>3 <Plug>lightline#bufferline#go(3)
+nmap <localleader>4 <Plug>lightline#bufferline#go(4)
+nmap <localleader>5 <Plug>lightline#bufferline#go(5)
+nmap <localleader>6 <Plug>lightline#bufferline#go(6)
+nmap <localleader>7 <Plug>lightline#bufferline#go(7)
+nmap <localleader>8 <Plug>lightline#bufferline#go(8)
+nmap <localleader>9 <Plug>lightline#bufferline#go(9)
+nmap <localleader>0 <Plug>lightline#bufferline#go(10)
+"call extend(g:which_key_map, {
+            "\ '1': ['<Plug>lightline#bufferline#go(1)'  , 'goto-tab-1'],
+            "\ '2': ['<Plug>lightline#bufferline#go(2)'  , 'goto-tab-2'],
+            "\ '3': ['<Plug>lightline#bufferline#go(3)'  , 'goto-tab-3'],
+            "\ '4': ['<Plug>lightline#bufferline#go(4)'  , 'goto-tab-4'],
+            "\ '5': ['<Plug>lightline#bufferline#go(5)'  , 'goto-tab-5'],
+            "\ '6': ['<Plug>lightline#bufferline#go(6)'  , 'goto-tab-6'],
+            "\ '7': ['<Plug>lightline#bufferline#go(7)'  , 'goto-tab-7'],
+            "\ '8': ['<Plug>lightline#bufferline#go(8)'  , 'goto-tab-8'],
+            "\ '9': ['<Plug>lightline#bufferline#go(9)'  , 'goto-tab-9'],
+            "\ '0': ['<Plug>lightline#bufferline#go(10)' , 'goto-tab-10']
+            "\})
 let g:which_key_map.g = [':Leaderf rg'     , 'global search']
 let g:which_key_map.r = [':LeaderfFunction', 'functions']
 let g:which_key_map.w = ['call feedkeys("\<Plug>(easymotion-wl)")', 'word-in-line']
@@ -80,6 +91,18 @@ let g:which_key_map.o = {
             \ 't' : [':cd %:p:h'           , 'set current dir as work dir' ]  ,
             \ 'd' : ['pwd'                 , 'echo current path'           ]  ,
             \ 'f' : ['set foldenable!'     , 'foldenable'                  ]  ,
+            \}
+
+let g:which_key_map.d = {
+            \ 'name' : '+Coc.nvim',
+            \ 'r' : ['<Plug>(coc-rename)'              , 'rename'          ] ,
+            \ 'd' : ['<Plug>(coc-definition)'          , 'definition'      ] ,
+            \ 't' : ['<Plug>(coc-type-definition)'     , 'type-definition' ] ,
+            \ 'e' : ['<Plug>(coc-references)'          , 'references'      ] ,
+            \ 'k' : [':call <SID>show_documentation()' , 'docs'            ] ,
+            \ 'f' : ['<Plug>(coc-fix-current)' , 'docs'            ] ,
+            \ 'x' : [':CocList diagnostics' , 'diagnostics'            ] ,
+            \ 'c' : [':CocList commands' , 'commands'            ] ,
             \}
 
 autocmd! FileType which_key
