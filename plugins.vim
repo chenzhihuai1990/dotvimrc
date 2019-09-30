@@ -8,7 +8,7 @@
 "
 let g:plug_window = 'new'
 
-if has('win32') || has('win64')
+if has('win32') 
     let g:vimrc = '$HOME/vimfiles/'
 else
     let g:vimrc = '~/.vim/'
@@ -81,7 +81,6 @@ Plug 't9md/vim-choosewin'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'inkarkat/vim-visualrepeat'
 "Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'

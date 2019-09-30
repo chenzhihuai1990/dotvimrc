@@ -26,19 +26,7 @@ nmap <localleader>7 <Plug>lightline#bufferline#go(7)
 nmap <localleader>8 <Plug>lightline#bufferline#go(8)
 nmap <localleader>9 <Plug>lightline#bufferline#go(9)
 nmap <localleader>0 <Plug>lightline#bufferline#go(10)
-"call extend(g:which_key_map, {
-            "\ '1': ['<Plug>lightline#bufferline#go(1)'  , 'goto-tab-1'],
-            "\ '2': ['<Plug>lightline#bufferline#go(2)'  , 'goto-tab-2'],
-            "\ '3': ['<Plug>lightline#bufferline#go(3)'  , 'goto-tab-3'],
-            "\ '4': ['<Plug>lightline#bufferline#go(4)'  , 'goto-tab-4'],
-            "\ '5': ['<Plug>lightline#bufferline#go(5)'  , 'goto-tab-5'],
-            "\ '6': ['<Plug>lightline#bufferline#go(6)'  , 'goto-tab-6'],
-            "\ '7': ['<Plug>lightline#bufferline#go(7)'  , 'goto-tab-7'],
-            "\ '8': ['<Plug>lightline#bufferline#go(8)'  , 'goto-tab-8'],
-            "\ '9': ['<Plug>lightline#bufferline#go(9)'  , 'goto-tab-9'],
-            "\ '0': ['<Plug>lightline#bufferline#go(10)' , 'goto-tab-10']
-            "\})
-let g:which_key_map.g = [':Leaderf rg'     , 'global search']
+
 let g:which_key_map.r = [':LeaderfFunction', 'functions']
 let g:which_key_map.w = ['call feedkeys("\<Plug>(easymotion-wl)")', 'word-in-line']
 nmap <c-g> :ChooseWin<Cr>
@@ -64,22 +52,23 @@ let g:which_key_map.v = {
             \ 't' : ['TagbarToggle'   , 'Tagbar'   ] ,
             \ }
 
-let g:which_key_map.j = {
-            \ 'name': '+Jumps/Search',
-            \ 't' : [ ':LeaderfBufTag'   , 'buffer tags'                  ] ,
-            \ 'a' : [ ':LeaderBufTagAll' , 'all tags'                     ] ,
-            \ 'f' : [ ':LeaderFunction'  , 'functions'                    ] ,
-            \ 'i' : [ ':LeaderRgInteractive', 'interactive search in Cwd' ] ,
-            \ 'r' : [ ':Leader rg --recall', 'recall last search'         ] ,
-            \ 'l' : [ ':Leader rg', 'live search in Cwd'                  ] ,
-            \ 'b' : [ ':Leader rg --all-buffer', 'search in buffer'       ] ,
+let g:which_key_map.g = {
+            \ 'name': '+Search/Jumps',
+            \ 't' : [ ':LeaderfBufTag'           , 'buffer tags'               ] ,
+            \ 'a' : [ ':LeaderfBufTagAll'        , 'all-tags'                  ] ,
+            \ 'f' : [ ':LeaderfFunction'         , 'functions'                 ] ,
+            \ 'F' : [ ':LeaderfFunctionAll'      , 'all-functions'             ] ,
+            \ 'i' : [ ':LeaderfRgInteractive'    , 'interactive-search-in-Cwd' ] ,
+            \ 'r' : [ ':Leaderf rg --recall'     , 'recall-last-search'        ] ,
+            \ 'l' : [ ':Leaderf rg'              , 'live-search-in-Cwd'        ] ,
+            \ 'b' : [ ':Leaderf rg --all-buffer' , 'search in buffer'          ] ,
             \ }
 
 let g:which_key_map.s = {
             \ 'name' : '+Settings',
             \ 'k' : [':e ~\dotvimrc\keybindings.vim'   , 'keybindings'     ] ,
             \ 'p' : [':e ~\dotvimrc\plugins.vim'       , 'plugins'         ] ,
-            \ 'l' : [':e ~\dotvimrc\whichkey.vim'      , 'leader menu'     ] ,
+            \ 'l' : [':e ~\dotvimrc\whichkey.vim'      , 'leader-menu'     ] ,
             \ 'o' : [':LeaderfFile ~/dotvimrc/plugins' , 'plugin settings' ] ,
             \ 'a' : [':LeaderfFile ~/dotvimrc/'        , 'all'             ] ,
             \ }
@@ -100,9 +89,9 @@ let g:which_key_map.d = {
             \ 't' : ['<Plug>(coc-type-definition)'     , 'type-definition' ] ,
             \ 'e' : ['<Plug>(coc-references)'          , 'references'      ] ,
             \ 'k' : [':call <SID>show_documentation()' , 'docs'            ] ,
-            \ 'f' : ['<Plug>(coc-fix-current)' , 'docs'            ] ,
-            \ 'x' : [':CocList diagnostics' , 'diagnostics'            ] ,
-            \ 'c' : [':CocList commands' , 'commands'            ] ,
+            \ 'f' : ['<Plug>(coc-fix-current)'         , 'fix-current'     ] ,
+            \ 'x' : [':CocList diagnostics'            , 'diagnostics'     ] ,
+            \ 'c' : [':CocList commands'               , 'commands'        ] ,
             \}
 
 autocmd! FileType which_key
