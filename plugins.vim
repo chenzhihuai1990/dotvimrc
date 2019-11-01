@@ -33,6 +33,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'morhetz/gruvbox'
 Plug 'yggdroot/indentline'
+Plug 'lilydjwg/colorizer'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Integrations
@@ -49,6 +50,8 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
+"Plug 'itchyny/lightline.vim'
+"Plug 'mengelbrecht/lightline-bufferline'
 Plug 'machakann/vim-highlightedyank'
 Plug 'henrik/vim-indexed-search'
 "Plug 'airblade/vim-gitgutter'

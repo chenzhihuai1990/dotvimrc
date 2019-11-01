@@ -110,7 +110,7 @@ set signcolumn=auto
 set ruler
 
 " Height of the command bar
-set cmdheight=1
+set cmdheight=2
 
 " A buffer becomes hidden when it is abandoned
 set hid
@@ -181,12 +181,11 @@ if has("gui_running")
     if has('win32')
         " Windows
         set guifont=Monaco\ for\ Powerline:h10
+        set guifontwide=kaiti:h11
     else
         " Non-windows platform
         set guifont=Monaco\ for\ Powerline\ 10 
     endif
-    set guifontwide=kaiti:h11
-    set linespace=1
     set guioptions-=m "no menu
     set guioptions-=T "no toolbar
     set guioptions-=e "No gui tabline
