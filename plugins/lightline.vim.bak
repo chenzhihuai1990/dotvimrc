@@ -49,7 +49,13 @@ function! LightlineReadonly()
 endfunction
 
 function! LightlineFilename()
-    let fname = expand('%:t')
+    let cdir = expand('%:h:t')
+    if cdir == '.' || cdir == ''
+        let cdir = ''
+    else
+        let cdir = cdir . ' / '
+    endif
+    let fname =  expand('%:t')
     return fname == 'ControlP' && has_key(g:lightline, 'ctrlp_item') ? g:lightline.ctrlp_item :
                 \ fname == '__Tagbar__' ? g:lightline.fname :
                 \ fname =~ '__Gundo\|NERD_tree' ? '' :
@@ -57,14 +63,14 @@ function! LightlineFilename()
                 \ &ft == 'unite' ? unite#get_status_string() :
                 \ &ft == 'vimshell' ? vimshell#get_status_string() :
                 \ ('' != LightlineReadonly() ? LightlineReadonly() . ' ' : '') .
-                \ ('' != fname ? fname : '[No Name]') .
+                \ cdir . ('' != fname ? fname : '[No Name]') .
                 \ ('' != LightlineModified() ? ' ' . LightlineModified() : '')
 endfunction
 
 function! LightlineFugitive()
     try
         if expand('%:t') !~? 'Tagbar\|Gundo\|NERD' && &ft !~? 'vimfiler' && exists('*fugitive#head')
-            let mark = ''  " edit here for cool mark
+            let mark = ' '  " edit here for cool mark
             let branch = fugitive#head()
             return branch !=# '' ? mark.branch : ''
         endif

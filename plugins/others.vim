@@ -1,3 +1,26 @@
+" => airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_right_alt_sep = '◀'
+"let g:airline_detect_modified=0
+let g:airline_symbols.maxlinenr = ' '
+let g:airline#extensions#tabline#show_tab_nr = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
+let g:airline#extensions#tabline#buffer_idx_mode = 1
+nmap <localleader>1 <Plug>AirlineSelectTab1
+nmap <localleader>2 <Plug>AirlineSelectTab2
+nmap <localleader>3 <Plug>AirlineSelectTab3
+nmap <localleader>4 <Plug>AirlineSelectTab4
+nmap <localleader>5 <Plug>AirlineSelectTab5
+nmap <localleader>6 <Plug>AirlineSelectTab6
+nmap <localleader>7 <Plug>AirlineSelectTab7
+nmap <localleader>8 <Plug>AirlineSelectTab8
+nmap <localleader>9 <Plug>AirlineSelectTab9
+nmap <localleader>- <Plug>AirlineSelectPrevTab
+nmap <localleader>+ <Plug>AirlineSelectNextTab
 " => choosewin
 let g:choosewin_overlay_enable=1
 

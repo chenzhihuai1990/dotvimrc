@@ -21,30 +21,13 @@ call plug#begin(g:vimrc.'plugged')
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'lervag/vimtex', {'for' : ['tex','plaintex']}
 Plug 'scrooloose/nerdcommenter'
-Plug 'AndrewRadev/vim-eco', {'for': 'eco'}
-Plug 'kchmck/vim-coffee-script', {'for': 'eco'}
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'brennier/quicktex', {'for': 'tex'}
-
 Plug 'raimondi/delimitmate'
-if !exists('g:completor') || g:completor=='ycm'
-"YouCompleteMe
-    Plug 'mattn/emmet-vim', {'for': 'html'}
-    Plug 'jvanja/vim-bootstrap4-snippets', {'for': 'html'}
-    if has("win64")
-        Plug 'snakeleon/youcompleteme-x64', {'for': ['cpp', 'python', 'tex']}
-    elseif has('win32') 
-        Plug 'snakeleon/youcompleteme-x86', {'for': ['cpp', 'python', 'tex']}
-    else
-        Plug 'valloric/youcompleteme', {'for': ['cpp', 'python', 'tex'], 'do': './install.py --clang-completer'}
-    endif
-elseif g:completor=='coc.nvim'
-"CoC for vim8
-    Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
-endif
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -65,8 +48,7 @@ Plug 'majutsushi/tagbar'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
-Plug 'itchyny/lightline.vim'
-Plug 'mengelbrecht/lightline-bufferline'
+Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
 Plug 'henrik/vim-indexed-search'
 "Plug 'airblade/vim-gitgutter'
@@ -74,6 +56,7 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'mhinz/vim-signify'
 Plug 't9md/vim-choosewin'
+Plug 'luochen1990/rainbow'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands

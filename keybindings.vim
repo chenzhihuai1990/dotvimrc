@@ -4,13 +4,13 @@ vmap <c-a> :EasyAlign /
 if !has('g:remmaping_semicolon')
     let g:remmaping_semicolon = 1
 end
-if g:remmaping_semicolon
-    nnoremap ; :
-    vnoremap ; :
-    map <c-n> <plug>(easymotion-next)
-    map <c-p> <plug>(easymotion-prev)
-    nnoremap <localleader> ,
-end
+nnoremap ; :
+vnoremap ; :
+nnoremap q; q:
+vnoremap q; q:
+map <c-n> <plug>(easymotion-next)
+map <c-p> <plug>(easymotion-prev)
+nnoremap <localleader> ,
 "change default behavior
 map f <plug>(easymotion-fl)
 map F <plug>(easymotion-Fl)
