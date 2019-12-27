@@ -10,7 +10,10 @@ let g:airline_symbols.maxlinenr = ' '
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_section_b = airline#section#create(['hunks','branch','%{coc#status()}'])
+function! AirlineInit()
+    let g:airline_section_b = airline#section#create(['hunks','branch','%{coc#status()}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 nmap <localleader>1 <Plug>AirlineSelectTab1
 nmap <localleader>2 <Plug>AirlineSelectTab2
@@ -85,6 +88,7 @@ let g:Lf_WildIgnore = {
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
             \}
 
+let g:Lf_StlColorscheme = 'gruvbox_material'
 
 " => Matchup
 let g:matchup_matchparen_offscreen={}
