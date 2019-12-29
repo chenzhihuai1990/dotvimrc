@@ -54,10 +54,8 @@ filetype indent on
 "set clipboard=unnamed
 
 " Input Method:
-if !has('nvim')
-    set iminsert=2
-endif
-set noimdisable
+set iminsert=0
+set imdisable
 
 " Set to auto read when a file is changed from the outside
 set autoread

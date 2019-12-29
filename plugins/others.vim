@@ -1,16 +1,25 @@
+" => Rainbow
+let g:rainbow_active = 1
 " => airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+if !exists('g:airline_mode_map')
+    let g:airline_mode_map={}
+endif
+let g:airline_mode_map['ic'] = 'INSERT'
 let g:airline_right_alt_sep = '◀'
 "let g:airline_detect_modified=0
 let g:airline_symbols.maxlinenr = ' '
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
-let g:airline_section_b = airline#section#create(['hunks','branch','%{coc#status()}'])
+function! AirlineInit()
+    let g:airline_section_b = airline#section#create(['hunks','branch','%{coc#status()}'])
+endfunction
+autocmd User AirlineAfterInit call AirlineInit()
 
 nmap <localleader>1 <Plug>AirlineSelectTab1
 nmap <localleader>2 <Plug>AirlineSelectTab2

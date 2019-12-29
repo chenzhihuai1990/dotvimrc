@@ -32,8 +32,9 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 " => Code display
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 Plug 'morhetz/gruvbox'
+Plug 'sainnhe/gruvbox-material'
 Plug 'yggdroot/indentline'
-Plug 'lilydjwg/colorizer'
+"Plug 'lilydjwg/colorizer'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Integrations
@@ -50,8 +51,6 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
-"Plug 'itchyny/lightline.vim'
-"Plug 'mengelbrecht/lightline-bufferline'
 Plug 'machakann/vim-highlightedyank'
 Plug 'henrik/vim-indexed-search'
 "Plug 'airblade/vim-gitgutter'
@@ -59,7 +58,8 @@ Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'mhinz/vim-signify'
 Plug 't9md/vim-choosewin'
-Plug 'luochen1990/rainbow'
+"Plug 'luochen1990/rainbow'
+"Plug 'amdt/vim-niji'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
@@ -67,12 +67,14 @@ Plug 'luochen1990/rainbow'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-"Plug 'vim-scripts/SearchComplete'
+Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
 "Plug 'godlygeek/tabular'
 Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
-Plug 'Yilin-Yang/vim-markbar'
+"preview mark when press single quotes
+Plug 'Yilin-Yang/vim-markbar' 
+"preview register content when press <c-r> in insert-mode
 Plug 'junegunn/vim-peekaboo'
 "Plug 'xolox/vim-session'
 "Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
@@ -86,6 +88,7 @@ Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'lotabout/ywvim'
 Plug 'embear/vim-localvimrc'
+"Keep caret on last place when reopen a file
 Plug 'farmergreg/vim-lastplace'
 
 call plug#end()
