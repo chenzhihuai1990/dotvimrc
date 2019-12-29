@@ -1,3 +1,4 @@
+let g:vimtex_quickfix_method='pplatex'
 " Disable all warnings
 let g:vimtex_quickfix_latexlog = {'default' : 0}
 
@@ -13,7 +14,6 @@ let g:vimtex_compiler_latexmk = {
             \     '-bibtex',
             \     '-verbose',
             \     '-synctex=1',
-            \   '-file-line-error', 
             \   '-interaction=nonstopmode',
             \ ]
             \}

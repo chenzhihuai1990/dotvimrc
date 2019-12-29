@@ -5,10 +5,10 @@
 " 1. search plugin in vimawesome.com
 " 2. add it in form: Plug 'author/plugin_name'
 " 3. run command :PlugInstall
-"
+" For more information, visit https://github.com/junegunn/vim-plug
 let g:plug_window = 'new'
 
-if has('win32') 
+if has('win32')
     let g:vimrc = '$HOME/vimfiles/'
 else
     let g:vimrc = '~/.vim/'
@@ -25,7 +25,7 @@ Plug 'scrooloose/nerdcommenter'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Completion
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'brennier/quicktex', {'for': 'tex'}
+Plug 'brennier/quicktex', {'for': 'tex'}
 Plug 'raimondi/delimitmate'
 Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} "Framework + lsp
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -52,14 +52,14 @@ Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
 Plug 'machakann/vim-highlightedyank'
+"Plug 'pgdouyon/vim-evanesco'
 Plug 'henrik/vim-indexed-search'
-"Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'mhinz/vim-signify'
 Plug 't9md/vim-choosewin'
-"Plug 'luochen1990/rainbow'
-"Plug 'amdt/vim-niji'
+Plug 'Yilin-Yang/vim-markbar'
+Plug 'junegunn/vim-peekaboo'
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
@@ -67,17 +67,10 @@ Plug 't9md/vim-choosewin'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/SearchComplete'
 Plug 'terryma/vim-smooth-scroll'
 Plug 'junegunn/vim-easy-align'
-"Plug 'godlygeek/tabular'
 Plug 'osyo-manga/vim-over', {'on': 'OverCommandLine'}
-"preview mark when press single quotes
-Plug 'Yilin-Yang/vim-markbar' 
-"preview register content when press <c-r> in insert-mode
-Plug 'junegunn/vim-peekaboo'
 "Plug 'xolox/vim-session'
-"Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 Plug 'tpope/vim-speeddating'
 Plug 'danro/rename.vim', {'on': 'Rename'}
 "Plug 'keith/investigate.vim'

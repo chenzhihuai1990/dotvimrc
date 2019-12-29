@@ -161,7 +161,6 @@ endif
 " Enable syntax highlighting
 syntax enable
 
-
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf-8
 
@@ -173,16 +172,14 @@ if has('multi_byte_ime')
     highlight CursorIM guifg=NONE guibg=Purple
 endif
 " Set extra options when running in GUI mode
-
+set termguicolors
 if has("gui_running")
-    "gvim
     if has('win32')
         " Windows
         set guifont=Monaco\ for\ Powerline:h10
-        set guifontwide=kaiti:h11
     else
         " Non-windows platform
-        set guifont=Monaco\ for\ Powerline\ 10 
+        set guifont=Monaco\ for\ Powerline\ 10
     endif
     set guioptions-=m "no menu
     set guioptions-=T "no toolbar
@@ -192,32 +189,20 @@ endif
 set t_Co=256
 
 function! PatchForDarkColorscheme() abort
-    "hi Normal guifg=#bbbbbb
     hi Cursor guifg=black guibg=darkorange gui=none term=none cterm=none
     hi CursorIM guifg=black guibg=darkorange
-    hi Folded gui=underline guifg=#909aa0
     hi Visual guibg=#606060 gui=none term=none cterm=none
-    hi link SpecialKey Comment
-    hi IncSearch gui=reverse guifg=darkorange
-    hi Search guifg=gray guibg=black
+    "hi link SpecialKey Comment
 endfunction
 
 set background=dark
-if has('gui_running') || has('nvim')
-    colorscheme gruvbox
-    augroup on_change_colorschema
-        autocmd!
-        autocmd ColorScheme * call PatchForDarkColorscheme()
-    augroup END
-else
-    try
-        colorscheme gruvbox
-    catch
-        colorscheme default
-    endtry
-endif
+let g:gruvbox_material_disable_italic_comment = 1
+colorscheme gruvbox-material
+augroup on_change_colorschema
+    autocmd!
+    autocmd ColorScheme * call PatchForDarkColorscheme()
+augroup END
 
-set background=dark
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Files, backups and undo
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -231,7 +216,7 @@ if exists("+undofile")
     " This, like swap and backups, uses .vim-undo first, then ~/.vim/undo
     " :help undo-persistence
     " This is only present in 7.3+
-    if has('win32') || has('win64')
+    if has('win32') "Windows Platform
         let homedir = expand($HOME).'\vimfiles\undo'
         if isdirectory($HOME . '\vimfiles\undo') == 0
             :execute ':silent !mkdir '.homedir
@@ -287,7 +272,7 @@ vnoremap <silent> # :<C-u>call VisualSelection('', '')<CR>?<C-R>=@/<CR><CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Specify the behavior when switching between buffers
 try
-  set switchbuf=useopen,usetab,newtab
+  set switchbuf=useopen,usetab,vsplit
   set stal=2
 catch
 endtry
@@ -354,8 +339,3 @@ function! VisualSelection(direction, extra_filter) range
     let @/ = l:pattern
     let @" = l:saved_reg
 endfunction
-
-hi link HighlightedyankRegion Visual 
-" Yank while keeping cursor position
-
-cd ~

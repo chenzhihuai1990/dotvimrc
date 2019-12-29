@@ -94,6 +94,7 @@ let g:Lf_WildIgnore = {
             \ 'file': ['*.sw?','~$*','*.bak','*.exe','*.o','*.so','*.py[co]']
             \}
 
+let g:Lf_StlColorscheme = 'gruvbox_material'
 
 " => Matchup
 let g:matchup_matchparen_offscreen={}

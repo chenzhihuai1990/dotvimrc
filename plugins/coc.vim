@@ -1,6 +1,7 @@
 if exists("g:completor") && g:completor=='coc.nvim'
 
 set updatetime=300
+set completeopt=menu
 
 autocmd FileType python let b:coc_suggest_disable = 1
 autocmd CursorHold * silent call CocActionAsync('highlight')
@@ -12,14 +13,13 @@ inoremap <silent><expr> <TAB>   pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <silent><expr> <S-TAB> pumvisible() ? "\<C-p>" : "<S-TAB>"
 " Use <cr> for confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-imap <expr> <CR> pumvisible()
-            \ ? "\<C-Y>"
-            \ : "<Plug>delimitMateCR"
-
+"imap <expr> <CR> pumvisible()
+            "\ ? "\<C-Y>"
+            "\ : "<Plug>delimitMateCR"
 " Use `[c` and `]c` for navigate diagnostics
+
 nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
 " Remap keys for gotos
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
@@ -41,7 +41,5 @@ xmap if <Plug>(coc-funcobj-i)
 xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
-
-autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 endif

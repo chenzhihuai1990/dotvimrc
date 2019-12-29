@@ -5,13 +5,14 @@ call which_key#register('<Space>', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 
-"Note: There must a semicolon before whitespace-inclusive command except "call" 
+"Note: There must a semicolon before whitespace-inclusive command except "call"
 if !has('g:which_key_map')
     let g:which_key_map={}
 endif
 
 let g:which_key_map[' '] = ['call feedkeys("\<Plug>(easymotion-bd-w)")', 'Ace-jump']
 let g:which_key_map['<tab>'] = ['e #<cr>', 'last buffer']
+nnoremap <leader><tab> :e #<cr>
 
 " ==> Level 1
 
@@ -30,7 +31,7 @@ nmap <c-g> :ChooseWin<Cr>
 " +Options
 " +Settings
 "
-let g:which_key_map.c={'name':'+Commenter'} 
+let g:which_key_map.c={'name':'+Commenter'}
 let g:which_key_map.f = {
             \ 'name' : '+File',
             \ 'f' : [ 'LeaderfFile'   , "open-files"    ] ,
