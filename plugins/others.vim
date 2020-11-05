@@ -79,6 +79,7 @@ let g:localvimrc_debug   = 1
 let g:localvimrc_sandbox = 0
 
 " => LeaderF
+let g:Lf_ShowRelativePath=0
 let g:Lf_ShortcutF      = ''
 let g:Lf_StlColorscheme = 'one'
 let g:Lf_ReverseOrder   = 1
