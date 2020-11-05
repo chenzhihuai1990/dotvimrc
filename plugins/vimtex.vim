@@ -1,6 +1,8 @@
 let g:vimtex_quickfix_method='pplatex'
 " Disable all warnings
 let g:vimtex_quickfix_latexlog = {'default' : 0}
+
+"let g:vimtex_quickfix_method='pplatex'
 let g:vimtex_compiler_latexmk = {
             \ 'backend' : 'jobs',
             \ 'background' : 1,
@@ -26,7 +28,7 @@ let g:vimtex_view_general_viewer = 'SumatraPDF'
 if has('nvim')
     let g:vimtex_view_general_options
                 \ = '-reuse-instance -forward-search @tex @line @pdf'
-                \ . '-inverse-search "nvr --servername ' . v:servername
+                \ . ' -inverse-search "nvr --servername ' . v:servername
                 \ . ' --remote-silent \"\%f\" -c \%l"'
 else
     let g:vimtex_view_general_options

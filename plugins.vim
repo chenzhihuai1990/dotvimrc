@@ -81,6 +81,7 @@ Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Plug 'lotabout/ywvim'
 Plug 'embear/vim-localvimrc'
+"Keep caret on last place when reopen a file
 Plug 'farmergreg/vim-lastplace'
 
 call plug#end()

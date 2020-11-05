@@ -1,9 +1,15 @@
+" => Rainbow
+let g:rainbow_active = 1
 " => airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
+if !exists('g:airline_mode_map')
+    let g:airline_mode_map={}
+endif
+let g:airline_mode_map['ic'] = 'INSERT'
 let g:airline_right_alt_sep = '◀'
 "let g:airline_detect_modified=0
 let g:airline_symbols.maxlinenr = ' '
