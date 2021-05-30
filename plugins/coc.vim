@@ -1,5 +1,3 @@
-if exists("g:completor") && g:completor=='coc.nvim'
-
 set updatetime=300
 set completeopt=menu
 
@@ -42,4 +40,3 @@ xmap af <Plug>(coc-funcobj-a)
 omap if <Plug>(coc-funcobj-i)
 omap af <Plug>(coc-funcobj-a)
 
-endif

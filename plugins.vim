@@ -51,9 +51,9 @@ Plug 'majutsushi/tagbar'
 Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
+"Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
-"Plug 'pgdouyon/vim-evanesco'
-Plug 'henrik/vim-indexed-search'
+"Plug 'henrik/vim-indexed-search'
 Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'mhinz/vim-signify'
@@ -79,9 +79,9 @@ Plug 'm1foley/vim-expresso'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Other
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Plug 'lotabout/ywvim'
-Plug 'embear/vim-localvimrc'
 "Keep caret on last place when reopen a file
 Plug 'farmergreg/vim-lastplace'
-
+if !has('gui_running')
+    Plug 'brglng/vim-im-select'
+endif
 call plug#end()

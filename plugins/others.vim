@@ -1,3 +1,12 @@
+" => IM Smart Switcher
+if has('mac')
+    let g:im_select_default = 'com.apple.keylayout.ABC'
+elseif has('win32')
+    let g:im_select_default = '1033'
+    let g:im_select_command = expand('~/dotvimrc/integrations/im-select.exe')
+endif
+"let g:XkbSwitchEnabled = 1
+
 " => Rainbow
 let g:rainbow_active = 1
 " => airline
@@ -9,6 +18,11 @@ endif
 if !exists('g:airline_mode_map')
     let g:airline_mode_map={}
 endif
+
+"let g:airline#extensions#coc#enabled = 0
+"let g:airline#extensions#hunks#enabled = 0
+"let g:airline#extensions#fugitiveline#enabled = 0
+"let g:airline_highlighting_cache = 0
 let g:airline_mode_map['ic'] = 'INSERT'
 let g:airline_right_alt_sep = '◀'
 "let g:airline_detect_modified=0
@@ -16,6 +30,7 @@ let g:airline_symbols.maxlinenr = ' '
 let g:airline#extensions#tabline#show_tab_nr = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " tab number
 let g:airline#extensions#tabline#buffer_idx_mode = 1
+let g:airline#extensions#xkblayout#enabled = 0
 function! AirlineInit()
     let g:airline_section_b = airline#section#create(['hunks','branch','%{coc#status()}'])
 endfunction
@@ -43,10 +58,10 @@ let g:NERDTreeWinSize  = 35
 let g:tagbar_left      = 0
 
 " => Smooth scroll
-nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 8, 2)<CR>
-nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 8, 2)<CR>
-nnoremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 8, 2)<CR>
-nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 8, 2)<CR>
+"nnoremap <silent> <c-u> :call smooth_scroll#up(&scroll, 8, 2)<CR>
+"nnoremap <silent> <c-d> :call smooth_scroll#down(&scroll, 8, 2)<CR>
+"nnoremap <silent> <c-b> :call smooth_scroll#up(&scroll*2, 8, 2)<CR>
+"nnoremap <silent> <c-f> :call smooth_scroll#down(&scroll*2, 8, 2)<CR>
 
 " => EasyMotion
 let g:EasyMotion_do_mapping=0
@@ -54,8 +69,11 @@ let g:EasyMotion_move_highlight=0
 hi EasyMotionMoveHL cterm=underline ctermfg=Yellow gui=underline guifg=yellow
 
 " => indentLine 
-let g:indentLine_char = ''
-set fcs=vert:
+"let g:indentLine_char = ''
+"set fcs=vert:
+let g:indentLine_char = '▏'
+let g:indentLine_color_gui = '#363949'
+set fcs=vert:▏
 
 " => ywvim (Chinese Input Method) 
 let g:ywvim_ims=[

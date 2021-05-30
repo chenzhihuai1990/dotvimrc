@@ -1,0 +1,15 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\*\shell\nvim-qt]
+@="Edit with Neov&im"
+"Icon"="C:\\Users\\chenz\\scoop\\apps\\neovim\\current\\bin\\nvim-qt.exe"
+
+[HKEY_CLASSES_ROOT\*\shell\nvim-qt\command]
+@="C:\\Users\\chenz\\scoop\\apps\\python\\current\\Scripts\\gnvr.exe \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\nvim-qt]
+@="Edit with Neov&im"
+"Icon"="C:\\Users\\chenz\\scoop\\apps\\neovim\\current\\bin\\nvim-qt.exe"
+
+[HKEY_CLASSES_ROOT\Directory\shell\nvim-qt\command]
+@="C:\\Users\\chenz\\scoop\\apps\\python\\current\\Scripts\\gnvr.exe \"%1\""

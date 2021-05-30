@@ -102,3 +102,7 @@ let g:quicktex_math = {
     \'in'   : '\in ',
     \'bn'   : '\mathbb{N} ',
 \}
+"""""""""""""""""""""""""""""
+" => json
+""""""""""""""""""""""""""""
+let g:vim_json_conceal=0

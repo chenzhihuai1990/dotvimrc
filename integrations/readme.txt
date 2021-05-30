@@ -1,0 +1,1 @@
+环境变量NVR_CMD = nvim-qt
