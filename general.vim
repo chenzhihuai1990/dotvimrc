@@ -177,7 +177,7 @@ set termguicolors
 if has("gui_running")
     if has('win32')
         " Windows
-        set guifont=Monaco\ for\ Powerline:h10
+        set guifont=consolas:h14
     else
         " Non-windows platform
         set guifont=Monaco\ for\ Powerline\ 10
