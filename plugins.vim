@@ -48,13 +48,17 @@ Plug 'majutsushi/tagbar'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Interface
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'mhinz/vim-startify'
 Plug 'Yggdroot/LeaderF', { 'do': '.\install' }
 Plug 'liuchengxu/vim-which-key'
 Plug 'vim-airline/vim-airline'
 "Plug 'itchyny/lightline.vim'
 Plug 'machakann/vim-highlightedyank'
 "Plug 'henrik/vim-indexed-search'
-Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
+Plug 'kevinhwang91/nvim-hlslens'
+Plug 'kyazdani42/nvim-web-devicons' " for file icons
+Plug 'kyazdani42/nvim-tree.lua'
+"Plug 'scrooloose/nerdtree', { 'on':  ['NERDTreeToggle', 'NERDTreeCWD'] }
 Plug 'mbbill/undotree', {'on': 'UndotreeToggle'}
 Plug 'mhinz/vim-signify'
 Plug 't9md/vim-choosewin'
@@ -64,6 +68,9 @@ Plug 'junegunn/vim-peekaboo'
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Commands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Plug 'dyng/ctrlsf.vim'
+Plug 'ggandor/lightspeed.nvim'
+Plug 'airblade/vim-rooter'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-repeat'
